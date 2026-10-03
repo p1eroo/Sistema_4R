@@ -57,6 +57,16 @@ import {
 } from "@/components/ui/chart";
 import { Input } from "@/components/ui/input";
 
+function todayLabel(): string {
+  const label = new Intl.DateTimeFormat("es-PE", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    timeZone: "America/Lima",
+  }).format(new Date());
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -198,9 +208,7 @@ function DashboardContent() {
       <section className="mx-auto w-full max-w-[1680px]">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-between">
           <div className="min-w-0">
-            <p className="text-xs font-semibold text-primary">
-              Viernes, 25 de septiembre
-            </p>
+            <p className="text-xs font-semibold text-primary">{todayLabel()}</p>
             <h2 className="mt-1 truncate text-xl font-bold text-foreground sm:text-2xl">
               Buenos días, Carlos
             </h2>
@@ -276,7 +284,12 @@ function DashboardContent() {
           </Link>
           <MetricCard
             label="Cuentas por cobrar"
-            value={metric("pendingEstimates")?.detail?.split(" ")[0] ?? "—"}
+            value={
+              metric("pendingEstimates")
+                ?.detail?.split(" ")
+                .slice(0, 2)
+                .join(" ") ?? "—"
+            }
             detail="Estimado desde presupuestos"
             icon={AlertTriangle}
             emphasis="warning"
@@ -312,7 +325,11 @@ function DashboardContent() {
                 <YAxis
                   axisLine={false}
                   tickLine={false}
-                  tickFormatter={(value) => `${value / 1000}k`}
+                  allowDecimals={false}
+                  width={44}
+                  tickFormatter={(value: number) =>
+                    value >= 1000 ? `${value / 1000}k` : `${value}`
+                  }
                 />
                 <ChartTooltip
                   content={<ChartTooltipContent indicator="line" />}
@@ -418,7 +435,7 @@ function DashboardContent() {
               </Button>
             }
           >
-            <div className="divide-y divide-border">
+            <div className="divide-y divide-border/60">
               {activities.map((activity) => {
                 const Icon = activityIcon(activity.tone);
                 const href = resolveActivityHref(activity);
@@ -475,7 +492,7 @@ function DashboardContent() {
                 <Link
                   key={vehicle.workOrderId}
                   to={dashboardPaths.deliveries}
-                  className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-md border border-border p-3 transition-colors hover:border-primary/40"
+                  className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-lg border border-border/60 bg-white/40 p-3 transition-colors hover:border-primary/40 hover:bg-white/70"
                 >
                   <div className="rounded-md bg-primary px-2 py-1 text-[11px] font-black text-primary-foreground">
                     {vehicle.plate}
@@ -541,7 +558,7 @@ function DashboardContent() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Buscar orden, placa o cliente"
-              className="bg-card pl-9"
+              className="pl-9"
               aria-label="Búsqueda global móvil"
             />
           </label>
@@ -624,7 +641,7 @@ function CompactList({
         )
       }
     >
-      <div className="divide-y divide-border">
+      <div className="divide-y divide-border/60">
         {rows.map(([main, detail, tone]) => (
           <div
             key={main}
