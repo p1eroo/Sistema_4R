@@ -4,7 +4,7 @@
 OpenCode
 
 ## Status
-TODO
+DONE
 
 ## Priority
 High
@@ -45,7 +45,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - npm run test
 
 ## Completion Report
-- Files changed:
-- Features completed:
-- Tests:
-- Remaining issues:
+- Files changed: `src/components/ui/{table,tabs,alert,badge,calendar,navigation-menu,drawer,accordion,textarea,checkbox,radio-group,switch,toggle}.tsx`
+- Features completed: Se aplicó el patrón Glass de CL-005 a los primitivos restantes. Tablas sobre superficies translúcidas planas con divisores `border-border/60`, hover `bg-white/40` y selección `bg-primary/5`. Tabs con pista `bg-white/40` y activo `bg-white`. Alert `bg-white/70`. Badge sin sombras. Calendar transparente sobre capas flotantes. Navigation menu con viewport `glass-float`. Drawer con estilo de modal (blanco opaco, `rounded-t-3xl`, overlay oscurecido con blur leve). Textarea `bg-white/70`. Checkbox/radio/switch/toggle sin sombras sueltas.
+- Tests: `npm run typecheck` OK; `npm run lint` 0 errores (10 warnings preexistentes); `npm run test` 76 archivos / 353 tests OK.
+- Remaining issues: sin cambios de API. `progress`, `skeleton`, `pagination` y `toggle-group` ya cumplían el patrón y no requirieron cambios.
+

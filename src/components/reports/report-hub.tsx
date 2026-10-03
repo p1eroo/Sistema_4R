@@ -47,8 +47,8 @@ export function ReportHub() {
         >
           <MetricCard
             label={family.title}
-            value="Mock operativo"
-            detail="Datos desde O-048"
+            value="Datos de ejemplo"
+            detail="Abre el reporte para ver el detalle"
             icon={family.icon}
           />
         </SectionCard>

@@ -144,12 +144,12 @@ function ComprasPage() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Buscar por documento o factura"
-              className="border-input bg-card shadow-none pl-9"
+              className="pl-9"
               aria-label="Buscar compras"
             />
           </div>
           <Select value={supplierId} onValueChange={setSupplierId}>
-            <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-48">
+            <SelectTrigger className="w-full sm:w-48">
               <SelectValue placeholder="Proveedor" />
             </SelectTrigger>
             <SelectContent>
@@ -162,7 +162,7 @@ function ComprasPage() {
             </SelectContent>
           </Select>
           <Select value={status} onValueChange={setStatus}>
-            <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-40">
+            <SelectTrigger className="w-full sm:w-40">
               <SelectValue placeholder="Estado" />
             </SelectTrigger>
             <SelectContent>
@@ -178,7 +178,7 @@ function ComprasPage() {
             type="date"
             value={date}
             onChange={(event) => setDate(event.target.value)}
-            className="w-full border-input bg-card shadow-none sm:w-40"
+            className="w-full sm:w-40"
             aria-label="Filtrar por fecha"
           />
         </ListToolbar>

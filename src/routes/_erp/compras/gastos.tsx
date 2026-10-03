@@ -138,12 +138,12 @@ function GastosPage() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Buscar por descripción"
-              className="border-input bg-card shadow-none pl-9"
+              className="pl-9"
               aria-label="Buscar gastos"
             />
           </div>
           <Select value={category} onValueChange={setCategory}>
-            <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-52">
+            <SelectTrigger className="w-full sm:w-52">
               <SelectValue placeholder="Categoría" />
             </SelectTrigger>
             <SelectContent>
@@ -159,7 +159,7 @@ function GastosPage() {
             type="date"
             value={date}
             onChange={(event) => setDate(event.target.value)}
-            className="w-full border-input bg-card shadow-none sm:w-40"
+            className="w-full sm:w-40"
             aria-label="Filtrar por fecha"
           />
         </ListToolbar>

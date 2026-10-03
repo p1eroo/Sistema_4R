@@ -100,12 +100,12 @@ export function PromoList({
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Buscar por código o nombre"
-            className="border-input bg-card shadow-none pl-9"
+            className="pl-9"
             aria-label="Buscar promociones"
           />
         </div>
         <Select value={status} onValueChange={setStatus}>
-          <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-44">
+          <SelectTrigger className="w-full sm:w-44">
             <SelectValue placeholder="Estado" />
           </SelectTrigger>
           <SelectContent>

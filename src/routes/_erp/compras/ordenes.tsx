@@ -132,12 +132,12 @@ function OrdenesPage() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Buscar por código"
-              className="border-input bg-card shadow-none pl-9"
+              className="pl-9"
               aria-label="Buscar órdenes"
             />
           </div>
           <Select value={supplierId} onValueChange={setSupplierId}>
-            <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-48">
+            <SelectTrigger className="w-full sm:w-48">
               <SelectValue placeholder="Proveedor" />
             </SelectTrigger>
             <SelectContent>
@@ -150,7 +150,7 @@ function OrdenesPage() {
             </SelectContent>
           </Select>
           <Select value={status} onValueChange={setStatus}>
-            <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-40">
+            <SelectTrigger className="w-full sm:w-40">
               <SelectValue placeholder="Estado" />
             </SelectTrigger>
             <SelectContent>

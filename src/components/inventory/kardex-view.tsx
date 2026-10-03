@@ -89,7 +89,7 @@ export function KardexView({
         <div className="space-y-1.5">
           <Label>Producto</Label>
           <Select value={productId} onValueChange={setProductId}>
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -104,7 +104,7 @@ export function KardexView({
         <div className="space-y-1.5">
           <Label>Sede</Label>
           <Select value={branchId} onValueChange={setBranchId}>
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -124,7 +124,6 @@ export function KardexView({
             type="date"
             value={from}
             onChange={(event) => setFrom(event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -134,7 +133,6 @@ export function KardexView({
             type="date"
             value={to}
             onChange={(event) => setTo(event.target.value)}
-            className="bg-background"
           />
         </div>
       </ListToolbarGrid>
@@ -168,7 +166,7 @@ export function KardexView({
           />
         ) : null}
         {kardexQuery.isSuccess && rows.length > 0 ? (
-          <ol className="divide-y divide-border rounded-lg border border-border">
+          <ol className="glass-subtle divide-y divide-border/60">
             {rows.map((movement) => (
               <li
                 key={movement.id}

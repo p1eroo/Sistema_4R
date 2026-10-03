@@ -102,7 +102,7 @@ export function CustomerList() {
           value={filters.branchId}
           onValueChange={(value) => updateFilter("branchId", value)}
         >
-          <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-48">
+          <SelectTrigger className="w-full sm:w-48">
             <SelectValue placeholder="Sede" />
           </SelectTrigger>
           <SelectContent>
@@ -118,7 +118,7 @@ export function CustomerList() {
           value={filters.status}
           onValueChange={(value) => updateFilter("status", value)}
         >
-          <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-40">
+          <SelectTrigger className="w-full sm:w-40">
             <SelectValue placeholder="Estado" />
           </SelectTrigger>
           <SelectContent>

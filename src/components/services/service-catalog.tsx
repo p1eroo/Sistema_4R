@@ -98,7 +98,7 @@ export function ServiceCatalog() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Buscar por nombre o código"
-            className="border-input bg-card shadow-none pl-9"
+            className="pl-9"
             aria-label="Buscar servicios"
           />
         </div>
@@ -112,7 +112,7 @@ export function ServiceCatalog() {
           title="Ranking del taller"
           subtitle="Mismos nombres que el dashboard"
         >
-          <div className="divide-y divide-border">
+          <div className="divide-y divide-border/60">
             {rankingRows.map((service, index) => (
               <div
                 key={service.id}

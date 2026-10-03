@@ -125,7 +125,7 @@ export function ServiceForm({
             value={draft.code}
             onChange={(event) => update("code", event.target.value)}
             placeholder="SRV-007"
-            className="bg-background uppercase"
+            className="uppercase"
             disabled={isEdit}
           />
         </div>
@@ -136,7 +136,6 @@ export function ServiceForm({
             value={draft.name}
             onChange={(event) => update("name", event.target.value)}
             placeholder="Cambio de aceite"
-            className="bg-background"
             disabled={isEdit}
           />
         </div>
@@ -149,7 +148,7 @@ export function ServiceForm({
             }
             disabled={isEdit}
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue placeholder="Categoría" />
             </SelectTrigger>
             <SelectContent>
@@ -171,7 +170,6 @@ export function ServiceForm({
             value={draft.priceSoles}
             onChange={(event) => update("priceSoles", event.target.value)}
             placeholder="90.00"
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -183,7 +181,6 @@ export function ServiceForm({
             step="15"
             value={draft.minutes}
             onChange={(event) => update("minutes", event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5 sm:col-span-2">
@@ -192,7 +189,6 @@ export function ServiceForm({
             id="service-description"
             value={draft.description}
             onChange={(event) => update("description", event.target.value)}
-            className="bg-background"
           />
         </div>
       </div>

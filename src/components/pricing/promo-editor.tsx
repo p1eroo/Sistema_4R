@@ -219,7 +219,7 @@ export function PromoEditor({
             value={draft.code}
             onChange={(event) => update("code", event.target.value)}
             placeholder="VERANO-15"
-            className="bg-background uppercase"
+            className="uppercase"
           />
         </div>
         <div className="space-y-1.5">
@@ -229,7 +229,6 @@ export function PromoEditor({
             value={draft.name}
             onChange={(event) => update("name", event.target.value)}
             placeholder="15% de verano"
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -240,7 +239,7 @@ export function PromoEditor({
               update("discountType", value as DiscountType)
             }
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -263,7 +262,6 @@ export function PromoEditor({
               step="1"
               value={draft.percent}
               onChange={(event) => update("percent", event.target.value)}
-              className="bg-background"
             />
           </div>
         ) : (
@@ -276,7 +274,6 @@ export function PromoEditor({
               step="0.01"
               value={draft.fixedSoles}
               onChange={(event) => update("fixedSoles", event.target.value)}
-              className="bg-background"
             />
           </div>
         )}
@@ -289,7 +286,7 @@ export function PromoEditor({
               update("targetId", "none");
             }}
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -308,7 +305,7 @@ export function PromoEditor({
               value={draft.targetId}
               onValueChange={(value) => update("targetId", value)}
             >
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue placeholder="Selecciona" />
               </SelectTrigger>
               <SelectContent>
@@ -329,7 +326,6 @@ export function PromoEditor({
             type="date"
             value={draft.startsOn}
             onChange={(event) => update("startsOn", event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -339,7 +335,6 @@ export function PromoEditor({
             type="date"
             value={draft.endsOn}
             onChange={(event) => update("endsOn", event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5 sm:col-span-2">
@@ -348,12 +343,11 @@ export function PromoEditor({
             id="promo-description"
             value={draft.description}
             onChange={(event) => update("description", event.target.value)}
-            className="bg-background"
           />
         </div>
       </div>
 
-      <div className="rounded-lg border border-border bg-muted/40 p-3">
+      <div className="glass-subtle p-3">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1 space-y-1.5">
             <Label htmlFor="promo-preview">Precio de preview (S/)</Label>
@@ -364,7 +358,6 @@ export function PromoEditor({
               step="0.01"
               value={draft.previewSoles}
               onChange={(event) => update("previewSoles", event.target.value)}
-              className="bg-background"
             />
           </div>
           {preview ? (

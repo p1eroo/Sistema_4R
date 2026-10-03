@@ -135,7 +135,7 @@ function CriticoPage() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Buscar por producto o SKU"
-              className="border-input bg-card shadow-none pl-9"
+              className="pl-9"
               aria-label="Buscar stock crítico"
             />
           </div>

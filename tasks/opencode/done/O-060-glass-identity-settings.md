@@ -1,10 +1,10 @@
-# O-057 - Productos, servicios, catálogo y precios en glass
+# O-060 - Usuarios, sedes y configuración en glass
 
 ## Agent
 OpenCode
 
 ## Status
-TODO
+DONE
 
 ## Priority
 Medium
@@ -16,7 +16,7 @@ PHASE 11 — Rediseño Glass
 CL-005
 
 ## Goal
-Llevar el módulo al nuevo estilo: Productos, servicios, catálogo y precios.
+Llevar el módulo al nuevo estilo: Usuarios, sedes y configuración.
 
 ## Context
 Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-filter` + fondo de degradados estático). Sin dependencias nuevas, sin WebGL, solo tema claro. La variante visual la elige el usuario en la vista previa (Paso 0 del plan). Módulo de listas, tablas y formularios: trabajo repetitivo siguiendo CONVENTIONS v2.
@@ -31,11 +31,10 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - No editar `styles.css`, `components/erp/*` ni `components/ui/*`; si falta un token, mover la tarea a `tasks/blocked/` y reportar.
 
 ## Expected Files
-- src/components/products/*
-- src/components/services/*
-- src/components/catalog/*
-- src/components/pricing/*
-- src/routes/_erp/productos/*
+- src/components/identity/*
+- src/components/settings/*
+- src/routes/_erp/usuarios/*
+- src/routes/_erp/configuracion/*
 
 ## Requirements
 - Solo clases y composición visual.
@@ -50,7 +49,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - npm run test
 
 ## Completion Report
-- Files changed:
-- Features completed:
-- Tests:
-- Remaining issues:
+- Files changed: `src/routes/_erp/usuarios/sedes.tsx`
+- Features completed: El módulo ya heredaba glass vía `SectionCard`, `Table`, `Dialog` y `ListToolbar` (no había `bg-card`/`border border-border`/`shadow-xs`). Se migró el único control nativo (checkbox de «Sede por defecto») al primitivo `Checkbox` en glass para coherencia visual. Estados vacío/carga/error ya usan `data-states`.
+- Tests: `npm run typecheck` OK; `npm run lint` 0 errores (10 warnings preexistentes); `npm run test` 76 archivos / 353 tests OK.
+- Remaining issues: ninguno. Sin cambios de lógica, datos, rutas ni textos.
+

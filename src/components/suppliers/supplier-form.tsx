@@ -105,7 +105,6 @@ export function SupplierForm({
             value={draft.ruc}
             onChange={(event) => update("ruc", event.target.value)}
             placeholder="20123456789"
-            className="bg-background"
             inputMode="numeric"
           />
         </div>
@@ -116,7 +115,6 @@ export function SupplierForm({
             value={draft.businessName}
             onChange={(event) => update("businessName", event.target.value)}
             placeholder="Filtros Lima SAC"
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -125,7 +123,6 @@ export function SupplierForm({
             id="supplier-trade"
             value={draft.tradeName}
             onChange={(event) => update("tradeName", event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -136,7 +133,7 @@ export function SupplierForm({
               update("paymentTerms", value as PaymentTerms)
             }
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -155,7 +152,6 @@ export function SupplierForm({
             value={draft.contactName}
             onChange={(event) => update("contactName", event.target.value)}
             placeholder="Pedro Ruiz"
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -165,7 +161,6 @@ export function SupplierForm({
             value={draft.contactPhone}
             onChange={(event) => update("contactPhone", event.target.value)}
             placeholder="987777888"
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -175,7 +170,6 @@ export function SupplierForm({
             type="email"
             value={draft.contactEmail}
             onChange={(event) => update("contactEmail", event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -184,7 +178,6 @@ export function SupplierForm({
             id="supplier-address"
             value={draft.address}
             onChange={(event) => update("address", event.target.value)}
-            className="bg-background"
           />
         </div>
       </div>

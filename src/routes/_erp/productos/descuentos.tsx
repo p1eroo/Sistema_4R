@@ -18,7 +18,7 @@ function DescuentosPage() {
     >
       <PromoList
         title="Descuentos"
-        subtitle="Porcentaje o monto fijo · preview en S/ con el helper O-035"
+        subtitle="Porcentaje o monto fijo, con vista previa en S/"
       />
     </ModulePage>
   );

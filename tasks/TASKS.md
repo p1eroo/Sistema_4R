@@ -6,12 +6,11 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 
 ## Current Phase
 
-**PHASE 11 — Rediseño Glass** (PHASE 0–10 completas)
+**Rediseño Glass terminado** (PHASE 0–11 completas)
 
 ## Claude
 
 ### TODO
-- [ ] CL-010 QA final del rediseño Glass
 
 ### DOING
 
@@ -25,6 +24,7 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 - [x] CL-007 POS en glass (4 pantallas)
 - [x] CL-008 Taller A en glass
 - [x] CL-009 Taller B en glass
+- [x] CL-010 QA final del rediseño Glass
 - [x] CL-011 Capas flotantes en vidrio medio y menús con tipografía de ERP
 
 ## Cursor
@@ -83,9 +83,6 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 ## OpenCode
 
 ### TODO
-- [ ] O-060 Usuarios, sedes y configuración en glass
-- [ ] O-061 Reportes en glass
-- [ ] O-062 Tests de primitivos y guardia de superficies ad-hoc
 
 ### DOING
 
@@ -149,6 +146,9 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 - [x] O-057 Productos, servicios, catálogo y precios en glass
 - [x] O-058 Compras en glass
 - [x] O-059 Inventario en glass
+- [x] O-060 Usuarios, sedes y configuración en glass
+- [x] O-061 Reportes en glass
+- [x] O-062 Tests de primitivos y guardia de superficies ad-hoc
 
 ## Blocked
 
@@ -174,8 +174,8 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 
 ### Recommended first tasks
 
-- Claude: CL-006 → CL-007 → CL-008 → CL-009, luego CL-010.
-- OpenCode: **desbloqueado** (CL-005 DONE). Siguen O-060 … O-062; leer antes `src/components/erp/CONVENTIONS.md` §0.
+- Claude: **sin tareas pendientes** (CL-001 … CL-011 DONE).
+- OpenCode: **sin tareas pendientes** (O-055 … O-062 DONE).
 - Cursor: sin tareas nuevas (C-001–C-045 DONE).
 
 ## Phase Progress
@@ -193,6 +193,6 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 | 8 | Reports | C-036 – C-037 | O-048 | Done |
 | 9 | Users / Branches / Settings | C-038 – C-040 | O-049 – O-052 | Done |
 | 10 | Frontend integration and QA | C-041 – C-045 | O-053 – O-054 | Done |
-| 11 | Rediseño Glass | Claude: CL-001 – CL-010 | O-055 – O-062 | In progress |
+| 11 | Rediseño Glass | Claude: CL-001 – CL-010 | O-055 – O-062 | Done |
 
-Counts: **45 Cursor** · **62 OpenCode** · **11 Claude** · **118 total** · **0 blocked** · **0 doing** · **110 done**
+Counts: **45 Cursor** · **62 OpenCode** · **11 Claude** · **118 total** · **0 blocked** · **0 doing** · **118 done**

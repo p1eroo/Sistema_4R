@@ -213,7 +213,7 @@ export function TransferForm() {
           <div className="space-y-1.5">
             <Label>Origen</Label>
             <Select value={fromBranchId} onValueChange={setFromBranchId}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -228,7 +228,7 @@ export function TransferForm() {
           <div className="space-y-1.5">
             <Label>Destino</Label>
             <Select value={toBranchId} onValueChange={setToBranchId}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -243,7 +243,7 @@ export function TransferForm() {
           <div className="space-y-1.5">
             <Label>Producto</Label>
             <Select value={productId} onValueChange={setProductId}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue placeholder="Selecciona producto" />
               </SelectTrigger>
               <SelectContent>
@@ -263,7 +263,7 @@ export function TransferForm() {
               min={1}
               value={quantity}
               onChange={(event) => setQuantity(event.target.value)}
-              className="bg-background tabular-nums"
+              className="tabular-nums"
             />
           </div>
         </div>
@@ -271,7 +271,6 @@ export function TransferForm() {
           value={notes}
           onChange={(event) => setNotes(event.target.value)}
           placeholder="Notas (opcional)"
-          className="bg-background"
         />
         <p className="text-[11px] text-muted-foreground">
           Saldo origen:{" "}
@@ -394,7 +393,7 @@ export function ReturnForm() {
           <div className="space-y-1.5">
             <Label>Sede</Label>
             <Select value={branchId} onValueChange={setBranchId}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -414,7 +413,7 @@ export function ReturnForm() {
                 setDirection(value as StockReturnDirection)
               }
             >
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -429,7 +428,7 @@ export function ReturnForm() {
           <div className="space-y-1.5">
             <Label>Producto</Label>
             <Select value={productId} onValueChange={setProductId}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue placeholder="Selecciona producto" />
               </SelectTrigger>
               <SelectContent>
@@ -449,7 +448,7 @@ export function ReturnForm() {
               min={1}
               value={quantity}
               onChange={(event) => setQuantity(event.target.value)}
-              className="bg-background tabular-nums"
+              className="tabular-nums"
             />
           </div>
         </div>
@@ -459,7 +458,6 @@ export function ReturnForm() {
             id="return-reason"
             value={reason}
             onChange={(event) => setReason(event.target.value)}
-            className="bg-background"
           />
         </div>
         <p className="text-[11px] text-muted-foreground">
@@ -552,7 +550,7 @@ export function AdjustmentForm() {
           <div className="space-y-1.5">
             <Label>Sede</Label>
             <Select value={branchId} onValueChange={setBranchId}>
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -576,7 +574,7 @@ export function AdjustmentForm() {
                 }
               }}
             >
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue placeholder="Selecciona producto" />
               </SelectTrigger>
               <SelectContent>
@@ -596,7 +594,7 @@ export function AdjustmentForm() {
               min={0}
               value={newQuantity}
               onChange={(event) => setNewQuantity(event.target.value)}
-              className="bg-background tabular-nums"
+              className="tabular-nums"
             />
           </div>
           <div className="space-y-1.5">
@@ -605,7 +603,6 @@ export function AdjustmentForm() {
               id="adjust-reason"
               value={reason}
               onChange={(event) => setReason(event.target.value)}
-              className="bg-background"
             />
           </div>
         </div>
@@ -710,7 +707,7 @@ export function PhysicalCountForm() {
               setResult(null);
             }}
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -722,7 +719,7 @@ export function PhysicalCountForm() {
             </SelectContent>
           </Select>
         </div>
-        <ul className="divide-y divide-border rounded-lg border border-border">
+        <ul className="glass-subtle divide-y divide-border/60">
           {rows.map((row) => (
             <li
               key={row.productId}
@@ -747,7 +744,7 @@ export function PhysicalCountForm() {
                     [row.productId]: event.target.value,
                   }))
                 }
-                className="bg-background tabular-nums"
+                className="tabular-nums"
                 aria-label={`Contado ${row.name}`}
               />
             </li>

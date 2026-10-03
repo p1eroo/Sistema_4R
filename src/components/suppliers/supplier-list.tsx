@@ -79,7 +79,7 @@ export function SupplierList() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Buscar por RUC o nombre"
-            className="border-input bg-card shadow-none pl-9"
+            className="pl-9"
             aria-label="Buscar proveedores"
           />
         </div>

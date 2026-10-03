@@ -184,7 +184,7 @@ export function PurchaseEditor() {
               onValueChange={setSupplierId}
               disabled={locked}
             >
-              <SelectTrigger className="bg-background">
+              <SelectTrigger>
                 <SelectValue placeholder="Selecciona proveedor" />
               </SelectTrigger>
               <SelectContent>
@@ -203,7 +203,6 @@ export function PurchaseEditor() {
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
               disabled={locked}
-              className="bg-background"
             />
           </div>
         </div>
@@ -244,7 +243,7 @@ export function PurchaseEditor() {
                   });
                 }}
               >
-                <SelectTrigger className="bg-background" aria-label="Producto">
+                <SelectTrigger aria-label="Producto">
                   <SelectValue placeholder="Producto" />
                 </SelectTrigger>
                 <SelectContent>
@@ -263,7 +262,7 @@ export function PurchaseEditor() {
                 onChange={(event) =>
                   updateLine(line.key, { quantity: event.target.value })
                 }
-                className="bg-background tabular-nums"
+                className="tabular-nums"
                 aria-label="Cantidad"
               />
               <Input
@@ -274,7 +273,7 @@ export function PurchaseEditor() {
                     unitCostSoles: event.target.value,
                   })
                 }
-                className="bg-background tabular-nums"
+                className="tabular-nums"
                 aria-label="Costo unitario"
               />
               <Button

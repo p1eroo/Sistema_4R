@@ -141,7 +141,7 @@ export function ProductForm({
             value={draft.sku}
             onChange={(event) => update("sku", event.target.value)}
             placeholder="FLT-ACE-01"
-            className="bg-background uppercase"
+            className="uppercase"
           />
         </div>
         <div className="space-y-1.5">
@@ -151,7 +151,6 @@ export function ProductForm({
             value={draft.name}
             onChange={(event) => update("name", event.target.value)}
             placeholder="Filtro de aceite"
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -162,7 +161,7 @@ export function ProductForm({
               update("brand", value === "none" ? "" : value)
             }
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue placeholder="Marca" />
             </SelectTrigger>
             <SelectContent>
@@ -181,7 +180,7 @@ export function ProductForm({
             value={draft.categoryId}
             onValueChange={(value) => update("categoryId", value)}
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue placeholder="Categoría" />
             </SelectTrigger>
             <SelectContent>
@@ -200,7 +199,7 @@ export function ProductForm({
             value={draft.unit}
             onValueChange={(value) => update("unit", value as ProductUnit)}
           >
-            <SelectTrigger className="bg-background">
+            <SelectTrigger>
               <SelectValue placeholder="Unidad" />
             </SelectTrigger>
             <SelectContent>
@@ -222,7 +221,6 @@ export function ProductForm({
             value={draft.priceSoles}
             onChange={(event) => update("priceSoles", event.target.value)}
             placeholder="45.00"
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -234,7 +232,6 @@ export function ProductForm({
             step="1"
             value={draft.stock}
             onChange={(event) => update("stock", event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5">
@@ -246,7 +243,6 @@ export function ProductForm({
             step="1"
             value={draft.minStock}
             onChange={(event) => update("minStock", event.target.value)}
-            className="bg-background"
           />
         </div>
         <div className="space-y-1.5 sm:col-span-2">
@@ -256,7 +252,6 @@ export function ProductForm({
             value={draft.location}
             onChange={(event) => update("location", event.target.value)}
             placeholder="A-01"
-            className="bg-background"
           />
         </div>
       </div>

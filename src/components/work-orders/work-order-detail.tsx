@@ -416,7 +416,7 @@ export function WorkOrderDetail({ workOrderId }: { workOrderId: string }) {
 
           <SectionCard
             title="Cambio de estado"
-            subtitle="Las transiciones las valida el servicio (O-023)."
+            subtitle="El sistema valida cada cambio de estado."
           >
             <div className="space-y-3">
               <p className="text-[11px] text-muted-foreground">
@@ -508,8 +508,8 @@ export function WorkOrderDetail({ workOrderId }: { workOrderId: string }) {
           <TabsContent key={tab.id} value={tab.id} className="mt-4">
             <SectionCard title={tab.label} subtitle="Módulo pendiente">
               <EmptyState
-                title={`${tab.label} se completa en su tarea`}
-                description="Esta pestaña confirma el hub de la OT. El flujo operativo llega en C-016 a C-022."
+                title={`${tab.label} se gestiona en su módulo`}
+                description="Abre el módulo correspondiente en el menú Taller para trabajar esta etapa."
               />
             </SectionCard>
           </TabsContent>

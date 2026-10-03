@@ -37,7 +37,7 @@ import { asEntityId, formatMoney } from "@/domain/shared";
 import { reportsService } from "@/mocks/reports/service";
 
 const chartConfig = {
-  value: { label: "Valor", color: "var(--primary)" },
+  value: { label: "Valor", color: "var(--chart-1)" },
 } satisfies ChartConfig;
 
 function branchFilterValue(branch: string) {
@@ -177,7 +177,7 @@ export function ReportView({
               <ChartTooltip content={<ChartTooltipContent />} />
               <Bar
                 dataKey="value"
-                fill="var(--primary)"
+                fill="var(--chart-1)"
                 radius={[3, 3, 0, 0]}
                 isAnimationActive={false}
               />

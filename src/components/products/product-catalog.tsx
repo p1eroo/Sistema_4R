@@ -171,7 +171,7 @@ export function ProductCatalog() {
             value={filters.search}
             onChange={(event) => updateFilter("search", event.target.value)}
             placeholder="Buscar por SKU o nombre"
-            className="border-input bg-card shadow-none pl-9"
+            className="pl-9"
             aria-label="Buscar productos"
           />
         </div>
@@ -179,7 +179,7 @@ export function ProductCatalog() {
           value={filters.categoryId}
           onValueChange={(value) => updateFilter("categoryId", value)}
         >
-          <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-48">
+          <SelectTrigger className="w-full sm:w-48">
             <SelectValue placeholder="Categoría" />
           </SelectTrigger>
           <SelectContent>
@@ -195,7 +195,7 @@ export function ProductCatalog() {
           value={filters.brand}
           onValueChange={(value) => updateFilter("brand", value)}
         >
-          <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-40">
+          <SelectTrigger className="w-full sm:w-40">
             <SelectValue placeholder="Marca" />
           </SelectTrigger>
           <SelectContent>
@@ -217,7 +217,7 @@ export function ProductCatalog() {
           title="Stock crítico"
           subtitle="Mismos SKU que el tablero · énfasis danger"
         >
-          <div className="divide-y divide-border">
+          <div className="divide-y divide-border/60">
             {criticalRows.map((product) => (
               <div
                 key={product.id}

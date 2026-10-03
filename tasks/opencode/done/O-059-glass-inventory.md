@@ -1,10 +1,10 @@
-# O-060 - Usuarios, sedes y configuración en glass
+# O-059 - Inventario en glass
 
 ## Agent
 OpenCode
 
 ## Status
-TODO
+DONE
 
 ## Priority
 Medium
@@ -16,7 +16,7 @@ PHASE 11 — Rediseño Glass
 CL-005
 
 ## Goal
-Llevar el módulo al nuevo estilo: Usuarios, sedes y configuración.
+Llevar el módulo al nuevo estilo: Inventario.
 
 ## Context
 Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-filter` + fondo de degradados estático). Sin dependencias nuevas, sin WebGL, solo tema claro. La variante visual la elige el usuario en la vista previa (Paso 0 del plan). Módulo de listas, tablas y formularios: trabajo repetitivo siguiendo CONVENTIONS v2.
@@ -31,10 +31,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - No editar `styles.css`, `components/erp/*` ni `components/ui/*`; si falta un token, mover la tarea a `tasks/blocked/` y reportar.
 
 ## Expected Files
-- src/components/identity/*
-- src/components/settings/*
-- src/routes/_erp/usuarios/*
-- src/routes/_erp/configuracion/*
+- src/components/inventory/*
+- src/routes/_erp/inventario/*
 
 ## Requirements
 - Solo clases y composición visual.
@@ -49,7 +47,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - npm run test
 
 ## Completion Report
-- Files changed:
-- Features completed:
-- Tests:
-- Remaining issues:
+- Files changed: `src/components/inventory/stock-movement-form.tsx`, `src/components/inventory/kardex-view.tsx`, `src/routes/_erp/inventario/{movimientos,critico,index}.tsx`
+- Features completed: Se quitaron `bg-background` de todos los inputs/selects de los formularios de transferencia, devolución, ajuste y conteo físico, y de los filtros de Kardex. Las listas de conteo y de kardex pasaron de `rounded-lg border border-border` a `glass-subtle` con `divide-border/60`. Se quitaron `bg-card`, `border-input` y `shadow-none` de las barras de búsqueda de las 3 rutas. `inventory-table.tsx` ya usaba primitivos glass.
+- Tests: `npm run typecheck` OK; `npm run lint` 0 errores (10 warnings preexistentes); `npm run test` 76 archivos / 353 tests OK.
+- Remaining issues: ninguno. Sin cambios de lógica, datos, rutas ni textos.
+

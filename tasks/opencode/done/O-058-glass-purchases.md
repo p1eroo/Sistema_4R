@@ -1,10 +1,10 @@
-# O-056 - Clientes y Proveedores en glass
+# O-058 - Compras en glass
 
 ## Agent
 OpenCode
 
 ## Status
-TODO
+DONE
 
 ## Priority
 Medium
@@ -16,7 +16,7 @@ PHASE 11 — Rediseño Glass
 CL-005
 
 ## Goal
-Llevar el módulo al nuevo estilo: Clientes y Proveedores.
+Llevar el módulo al nuevo estilo: Compras.
 
 ## Context
 Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-filter` + fondo de degradados estático). Sin dependencias nuevas, sin WebGL, solo tema claro. La variante visual la elige el usuario en la vista previa (Paso 0 del plan). Módulo de listas, tablas y formularios: trabajo repetitivo siguiendo CONVENTIONS v2.
@@ -31,10 +31,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - No editar `styles.css`, `components/erp/*` ni `components/ui/*`; si falta un token, mover la tarea a `tasks/blocked/` y reportar.
 
 ## Expected Files
-- src/components/customers/*
-- src/components/suppliers/*
-- src/routes/_erp/clientes/*
-- src/routes/_erp/proveedores/*
+- src/components/purchases/*
+- src/routes/_erp/compras/*
 
 ## Requirements
 - Solo clases y composición visual.
@@ -49,7 +47,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - npm run test
 
 ## Completion Report
-- Files changed:
-- Features completed:
-- Tests:
-- Remaining issues:
+- Files changed: `src/components/purchases/purchase-editor.tsx`, `src/routes/_erp/compras/{index,ordenes,cotizaciones,gastos}.tsx`
+- Features completed: Se quitaron `bg-card`, `border-input`, `shadow-none` de las barras de filtros de las 4 vistas de Compras y `bg-background` de inputs/selects del editor de compra. Las superficies ya provienen de `SectionCard`/`PurchaseTable` (glass) y el modal usa el `Dialog` primitivo.
+- Tests: `npm run typecheck` OK; `npm run lint` 0 errores (10 warnings preexistentes); `npm run test` 76 archivos / 353 tests OK.
+- Remaining issues: ninguno. Sin cambios de lógica, datos, rutas ni textos.
+

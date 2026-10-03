@@ -11,6 +11,7 @@ import {
   LoadingState,
 } from "@/components/erp/data-states";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -204,11 +205,10 @@ function SedesPage() {
                 }
               />
               <label className="flex items-center gap-2 text-xs">
-                <input
-                  type="checkbox"
+                <Checkbox
                   checked={form.isDefault}
-                  onChange={(event) =>
-                    setForm({ ...form, isDefault: event.target.checked })
+                  onCheckedChange={(checked) =>
+                    setForm({ ...form, isDefault: checked === true })
                   }
                 />
                 Sede por defecto

@@ -4,7 +4,7 @@
 OpenCode
 
 ## Status
-TODO
+DONE
 
 ## Priority
 Medium
@@ -45,7 +45,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - npm run test
 
 ## Completion Report
-- Files changed:
-- Features completed:
-- Tests:
-- Remaining issues:
+- Files changed: `src/components/erp/surface.test.tsx` (nuevo), `src/components/erp/glass-guard.test.ts` (nuevo)
+- Features completed: `surface.test.tsx` renderiza con `renderToStaticMarkup` (entorno node, sin dependencias nuevas) `Surface` en sus 3 niveles y con `as`/`className`, más `SectionCard`, `MetricCard` y `StatusBadge`, verificando herencia de `glass*`, `border-border/60` y tokens semánticos. `glass-guard.test.ts` recorre `src/**/*.tsx`, excluye `components/erp/surface.tsx` y falla listando los archivos que contienen `border border-border bg-card`. Se probó la guardia con un archivo señuelo temporal: falló con `expected [ 'components/__guard_probe.tsx' ] to deeply equal []`; el señuelo se eliminó.
+- Tests: `npm run typecheck` OK; `npm run lint` 0 errores (10 warnings preexistentes); `npm run test` 78 archivos / 362 tests OK.
+- Remaining issues: ninguno.
+
