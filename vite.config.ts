@@ -30,10 +30,21 @@ export default defineConfig(({ command }) => ({
       },
     }),
     // Nitro solo empaqueta el servidor en build; en dev sirve Vite.
-    // Destino: Cloudflare Pages (salida en dist/). Se puede cambiar con la
-    // variable NITRO_PRESET, por ejemplo NITRO_PRESET=node-server.
+    // Destino: Cloudflare Workers con archivos estáticos. Genera el
+    // wrangler.json, así el despliegue es `npx wrangler deploy` sin más ajustes.
+    // Para otro destino: NITRO_PRESET=node-server npm run build.
     ...(command === "build"
-      ? [nitro({ preset: process.env["NITRO_PRESET"] ?? "cloudflare_pages" })]
+      ? [
+          nitro({
+            preset: process.env["NITRO_PRESET"] ?? "cloudflare_module",
+            cloudflare: {
+              deployConfig: true,
+              nodeCompat: true,
+              // Debe coincidir con el nombre del proyecto en Cloudflare.
+              wrangler: { name: "4ruedas" },
+            },
+          }),
+        ]
       : []),
     viteReact(),
   ],

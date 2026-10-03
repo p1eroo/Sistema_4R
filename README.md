@@ -20,14 +20,17 @@ npm i
 npm run dev
 ```
 
-## Despliegue (Cloudflare Pages)
+## Despliegue (Cloudflare Workers)
 
-`npm run build` compila para Cloudflare Pages y deja el resultado en `dist/`.
+`npm run build` compila para Cloudflare Workers con archivos estáticos (salida en `.output/`)
+y genera la configuración de Wrangler, incluido el flag `nodejs_compat`.
 
-En el proyecto de Cloudflare Pages:
+En el proyecto de Cloudflare (Workers & Pages → proyecto `4ruedas`, conectado a este repositorio):
 
 - Build command: `npm run build`
-- Build output directory: `dist`
-- Settings → Functions → Compatibility flags: `nodejs_compat`
+- Deploy command: `npx wrangler deploy`
 
-Para compilar para otro destino: `NITRO_PRESET=node-server npm run build` (salida en `.output/`).
+El nombre del Worker está fijado en `vite.config.ts` (`wrangler.name`) y debe coincidir con el
+nombre del proyecto en Cloudflare.
+
+Para compilar para otro destino: `NITRO_PRESET=node-server npm run build`.
