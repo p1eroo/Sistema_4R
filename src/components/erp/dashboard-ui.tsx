@@ -1,9 +1,14 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
-import { ArrowDownRight, ArrowUpRight, MoreHorizontal } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, CircleHelp } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
 export function MetricCard({
@@ -60,12 +65,18 @@ export function SectionCard({
   subtitle,
   children,
   action,
+  help,
   className,
 }: {
   title: string;
   subtitle?: string;
   children: ReactNode;
   action?: ReactNode;
+  /**
+   * Ayuda contextual: para qué sirve el bloque o qué hacer en él.
+   * Muestra un botón de ayuda en la cabecera que abre un popover.
+   */
+  help?: ReactNode;
   className?: string;
 }) {
   return (
@@ -79,14 +90,44 @@ export function SectionCard({
             </p>
           )}
         </div>
-        {action ?? (
-          <Button variant="ghost" size="icon" className="size-7">
-            <MoreHorizontal />
-          </Button>
-        )}
+        {action || help ? (
+          <div className="flex items-center gap-1">
+            {action}
+            {help ? <SectionHelp title={title}>{help}</SectionHelp> : null}
+          </div>
+        ) : null}
       </CardHeader>
       <CardContent className="p-4">{children}</CardContent>
     </Card>
+  );
+}
+
+function SectionHelp({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-7 text-muted-foreground hover:text-primary data-[state=open]:bg-accent data-[state=open]:text-primary"
+          aria-label={`Ayuda: ${title}`}
+        >
+          <CircleHelp />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-72 space-y-1.5">
+        <p className="text-xs font-bold text-foreground">{title}</p>
+        <div className="space-y-1.5 text-xs leading-relaxed text-muted-foreground [&_b]:font-semibold [&_b]:text-foreground">
+          {children}
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 }
 

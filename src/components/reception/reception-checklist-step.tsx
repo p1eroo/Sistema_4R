@@ -255,8 +255,11 @@ export function ReceptionChecklistStep({
           Kilometraje
           <Input
             type="number"
+            inputMode="numeric"
             min={0}
-            value={odometerKm}
+            placeholder="0"
+            value={odometerKm === 0 ? "" : odometerKm}
+            onFocus={(event) => event.target.select()}
             onChange={(event) =>
               setOdometerKm(Math.max(0, Number(event.target.value) || 0))
             }
@@ -392,6 +395,7 @@ export function ReceptionChecklistStep({
                 type="number"
                 min={1}
                 value={item.quantity}
+                onFocus={(event) => event.target.select()}
                 onChange={(event) =>
                   setBelongings((rows) =>
                     rows.map((row) =>

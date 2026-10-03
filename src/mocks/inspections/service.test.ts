@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 
 import {
   createInspectionChecklist,
+  DamageMarkKind,
   DamageSeverity,
   InspectionStatus,
   type DamageZoneId,
@@ -123,5 +124,69 @@ describe("inspectionService.saveChecklist", () => {
     expect(
       updated.checklist.every((item) => item.id !== "aceite" || !item.checked),
     ).toBe(true);
+  });
+});
+
+describe("inspectionService damage marks", () => {
+  it("adds a point and a stroke mark on the vehicle diagram", async () => {
+    const receptionId = asEntityId("RCP-0001");
+    const before = (await service.getByReception(receptionId))?.damageMarks;
+
+    await service.addDamageMark(receptionId, {
+      kind: DamageMarkKind.Point,
+      position: { x: 12.34, y: 50 },
+      severity: DamageSeverity.Minor,
+      notes: " Abolladura ",
+    });
+    const updated = await service.addDamageMark(receptionId, {
+      kind: DamageMarkKind.Stroke,
+      position: { x: 40, y: 20 },
+      path: [
+        { x: 40, y: 20 },
+        { x: 55, y: 22 },
+      ],
+      severity: DamageSeverity.Severe,
+    });
+
+    const marks = updated.damageMarks ?? [];
+    expect(marks).toHaveLength((before?.length ?? 0) + 2);
+    expect(marks.at(-2)).toMatchObject({
+      kind: DamageMarkKind.Point,
+      position: { x: 12.3, y: 50 },
+      notes: "Abolladura",
+    });
+    expect(marks.at(-1)?.path).toHaveLength(2);
+  });
+
+  it("rejects marks outside the diagram and strokes without a path", async () => {
+    const receptionId = asEntityId("RCP-0001");
+
+    await expect(
+      service.addDamageMark(receptionId, {
+        kind: DamageMarkKind.Point,
+        position: { x: 140, y: 10 },
+        severity: DamageSeverity.Minor,
+      }),
+    ).rejects.toBeInstanceOf(InspectionValidationError);
+    await expect(
+      service.addDamageMark(receptionId, {
+        kind: DamageMarkKind.Stroke,
+        position: { x: 10, y: 10 },
+        severity: DamageSeverity.Minor,
+      }),
+    ).rejects.toBeInstanceOf(InspectionValidationError);
+  });
+
+  it("removes a mark by id", async () => {
+    const receptionId = asEntityId("RCP-0001");
+    const added = await service.addDamageMark(receptionId, {
+      kind: DamageMarkKind.Point,
+      position: { x: 80, y: 80 },
+      severity: DamageSeverity.Moderate,
+    });
+    const markId = added.damageMarks!.at(-1)!.id;
+
+    const updated = await service.removeDamageMark(receptionId, markId);
+    expect(updated.damageMarks?.map((mark) => mark.id)).not.toContain(markId);
   });
 });

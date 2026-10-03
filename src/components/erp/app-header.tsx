@@ -99,7 +99,7 @@ export function AppHeader() {
   }
 
   return (
-    <header className="glass-bar sticky top-0 z-20 flex h-16 items-center gap-2 px-3 sm:gap-3 sm:px-5">
+    <header className="glass-float backdrop-mask-top sticky top-3 z-20 mx-3 mt-3 flex h-14 items-center gap-2 rounded-lg border-border px-3 shadow-none sm:mx-5 sm:gap-3 sm:px-4 lg:mx-6">
       <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
         <SidebarTrigger
           className="size-9 shrink-0 border border-border md:hidden"
@@ -133,16 +133,11 @@ export function AppHeader() {
               <ChevronDown className="size-4 text-muted-foreground" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-60">
-            <div className="px-2.5 pb-1.5 pt-1">
-              <p className="text-xs font-semibold text-foreground">
-                Cambiar sede
-              </p>
-              <p className="text-[11px] text-muted-foreground">
-                Selecciona dónde operar
-              </p>
-            </div>
-            <DropdownMenuSeparator />
+          <DropdownMenuContent
+            align="end"
+            className="w-52"
+            aria-label="Cambiar sede"
+          >
             {branches.map((branch) => {
               const active = branch.id === activeBranch?.id;
 
@@ -150,17 +145,13 @@ export function AppHeader() {
                 <DropdownMenuItem
                   key={branch.id}
                   onSelect={() => setActiveBranchId(branch.id)}
+                  aria-current={active ? "true" : undefined}
                   className={cn(
                     "pr-2.5",
                     active && "bg-accent/60 font-medium text-accent-foreground",
                   )}
                 >
                   <span className="truncate">{branch.name}</span>
-                  {active ? (
-                    <span className="ml-auto text-[10px] font-medium text-primary">
-                      Activa
-                    </span>
-                  ) : null}
                 </DropdownMenuItem>
               );
             })}

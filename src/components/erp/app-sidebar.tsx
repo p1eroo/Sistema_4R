@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, HandCoins } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { CollapsedNavFlyout } from "@/components/erp/collapsed-nav-flyout";
 import { CashSessionPanel } from "@/components/pos/cash-session-panel";
@@ -92,11 +92,7 @@ function MenuEntry({ group }: { group: NavGroup }) {
           tooltip={group.label}
           isActive={active}
           asChild
-          className={cn(
-            "h-10",
-            active &&
-              "border-l-2 border-sidebar-primary group-data-[collapsible=icon]:border-l-0",
-          )}
+          className="h-10 rounded-lg font-medium data-[active=true]:bg-primary data-[active=true]:font-semibold data-[active=true]:text-primary-foreground data-[active=true]:shadow-[0_8px_18px_-10px_var(--primary)] data-[active=true]:hover:bg-primary/90 data-[active=true]:hover:text-primary-foreground"
         >
           <Link to={group.path} onClick={() => setOpenMobile(false)}>
             <group.icon />
@@ -124,7 +120,10 @@ function MenuEntry({ group }: { group: NavGroup }) {
     <Collapsible open={open} onOpenChange={setOpen} asChild>
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
-          <SidebarMenuButton tooltip={group.label} className="h-10">
+          <SidebarMenuButton
+            tooltip={group.label}
+            className="h-10 rounded-lg font-medium"
+          >
             <group.icon />
             <span>{group.label}</span>
             <ChevronDown className="ml-auto transition-transform data-[state=open]:rotate-180" />
@@ -137,7 +136,11 @@ function MenuEntry({ group }: { group: NavGroup }) {
 
               return (
                 <SidebarMenuSubItem key={child.path}>
-                  <SidebarMenuSubButton asChild isActive={active}>
+                  <SidebarMenuSubButton
+                    asChild
+                    isActive={active}
+                    className="rounded-lg data-[active=true]:font-semibold data-[active=true]:text-primary"
+                  >
                     <Link to={child.path} onClick={() => setOpenMobile(false)}>
                       <span>{child.label}</span>
                     </Link>
@@ -161,7 +164,7 @@ export function AppSidebar() {
   const cashIsOpen = cashSession?.status === CashSessionStatus.Open;
 
   return (
-    <Sidebar collapsible="icon" className="border-sidebar-border">
+    <Sidebar collapsible="icon" variant="floating">
       <SidebarHeader className="px-3 py-0 group-data-[collapsible=icon]:px-0">
         <BrandMark />
       </SidebarHeader>
@@ -179,18 +182,24 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="border-t border-sidebar-border p-3 group-data-[collapsible=icon]:p-1">
+      <SidebarFooter className="p-3 group-data-[collapsible=icon]:p-1.5">
         <button
           type="button"
           className={cn(
-            "flex w-full items-center overflow-hidden rounded-lg bg-sidebar-accent/60 text-left transition-colors hover:bg-sidebar-accent",
-            collapsed ? "justify-center gap-0 p-0" : "gap-3 p-2",
+            "flex w-full items-center overflow-hidden rounded-xl border border-border bg-white/80 text-left shadow-sm transition-colors hover:bg-white",
+            collapsed ? "justify-center gap-0 p-2.5" : "gap-3 px-3 py-2.5",
           )}
           onClick={() => setCashPanelOpen(true)}
         >
-          <div className="grid size-9 shrink-0 place-items-center rounded-md bg-sidebar-primary/15 text-sidebar-primary">
-            <HandCoins className="size-4" />
-          </div>
+          <span
+            className={cn(
+              "size-2.5 shrink-0 rounded-full",
+              cashIsOpen
+                ? "bg-success ring-4 ring-success/20"
+                : "bg-muted-foreground/50 ring-4 ring-muted-foreground/15",
+            )}
+            aria-hidden
+          />
           {!collapsed && (
             <div className="min-w-0">
               <p className="truncate text-xs font-semibold">

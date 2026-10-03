@@ -1,7 +1,12 @@
 import {
+  clampDiagramPosition,
   createInspectionChecklist,
+  DamageMarkKind,
   DamageSeverity,
   findDamageZone,
+  MAX_STROKE_POINTS,
+  type DamageMark,
+  type DiagramPosition,
   InspectionStatus,
   INSPECTION_CHECKLIST_CATALOG,
   type DamagePoint,
@@ -42,6 +47,14 @@ export type DamagePointInput = {
   readonly photos?: readonly string[] | undefined;
 };
 
+export type DamageMarkInput = {
+  readonly kind: DamageMarkKind;
+  readonly position: DiagramPosition;
+  readonly path?: readonly DiagramPosition[] | undefined;
+  readonly severity: DamageSeverity;
+  readonly notes?: string | undefined;
+};
+
 export type InspectionService = {
   list(query?: ListQuery): Promise<ListResult<Inspection>>;
   getById(id: EntityId): Promise<Inspection | undefined>;
@@ -58,6 +71,15 @@ export type InspectionService = {
     receptionId: EntityId,
     pointId: EntityId,
   ): Promise<Inspection>;
+  /** Agrega una marca libre (punto o rayón) sobre el diagrama del vehículo. */
+  addDamageMark(
+    receptionId: EntityId,
+    input: DamageMarkInput,
+  ): Promise<Inspection>;
+  removeDamageMark(
+    receptionId: EntityId,
+    markId: EntityId,
+  ): Promise<Inspection>;
 };
 
 const SEARCH_FIELDS: readonly (keyof Inspection)[] = ["id", "status"];
@@ -67,6 +89,23 @@ const SORT_SELECTORS = {
   status: (inspection: Inspection) => inspection.status,
   createdAt: (inspection: Inspection) => inspection.createdAt,
 };
+
+function nextDamageMarkId(inspections: readonly Inspection[]): EntityId {
+  const max = inspections
+    .flatMap((inspection) => inspection.damageMarks ?? [])
+    .reduce((acc, mark) => {
+      const value = /^DMK-(\d+)$/.exec(mark.id)?.[1];
+      return value ? Math.max(acc, Number(value)) : acc;
+    }, 0);
+
+  return asEntityId(`DMK-${String(max + 1).padStart(4, "0")}`);
+}
+
+function isValidPosition(position: DiagramPosition): boolean {
+  return [position.x, position.y].every(
+    (value) => Number.isFinite(value) && value >= 0 && value <= 100,
+  );
+}
 
 function nextDamagePointId(inspections: readonly Inspection[]): EntityId {
   const max = inspections
@@ -206,6 +245,58 @@ export function createInspectionService(
         damagePoints: inspection.damagePoints.filter(
           (point) => point.id !== pointId,
         ),
+        updatedAt: nowIso(),
+      });
+    },
+
+    async addDamageMark(receptionId, input) {
+      const path = input.path ?? [];
+      const issues: string[] = [];
+      if (![input.position, ...path].every(isValidPosition)) {
+        issues.push("La marca está fuera del diagrama.");
+      }
+      if (input.kind === DamageMarkKind.Stroke && path.length < 2) {
+        issues.push("Un rayón necesita al menos dos puntos.");
+      }
+      if (path.length > MAX_STROKE_POINTS) {
+        issues.push("El trazo es demasiado largo.");
+      }
+      if (issues.length > 0) {
+        throw new InspectionValidationError(issues);
+      }
+
+      const inspection = await getOrCreate(receptionId);
+      const now = nowIso();
+      const mark: DamageMark = {
+        id: nextDamageMarkId(await repository.getAll()),
+        kind: input.kind,
+        position: clampDiagramPosition(input.position),
+        ...(input.kind === DamageMarkKind.Stroke
+          ? { path: path.map(clampDiagramPosition) }
+          : {}),
+        severity: input.severity,
+        ...(input.notes?.trim() ? { notes: input.notes.trim() } : {}),
+        createdAt: now,
+      };
+
+      return repository.update(inspection.id, {
+        damageMarks: [...(inspection.damageMarks ?? []), mark],
+        status: InspectionStatus.InProgress,
+        updatedAt: now,
+      });
+    },
+
+    async removeDamageMark(receptionId, markId) {
+      const inspection = await getOrCreate(receptionId);
+      const marks = inspection.damageMarks ?? [];
+      if (!marks.some((mark) => mark.id === markId)) {
+        throw new InspectionValidationError([
+          `No se encontró la marca ${markId}.`,
+        ]);
+      }
+
+      return repository.update(inspection.id, {
+        damageMarks: marks.filter((mark) => mark.id !== markId),
         updatedAt: nowIso(),
       });
     },

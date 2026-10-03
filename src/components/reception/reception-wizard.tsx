@@ -14,22 +14,22 @@ const STEPS = [
   {
     id: "party",
     label: "Cliente y vehículo",
-    slot: "Búsqueda y alta de cliente/vehículo.",
+    help: "Busca al cliente por placa, DNI, RUC o nombre. Si no existe, créalo con «Nuevo cliente». Luego indica el motivo de ingreso y la sede, y pulsa «Guardar y continuar» para empezar el registro.",
   },
   {
     id: "inspection",
     label: "Inspección",
-    slot: "Mapa de daños e inspección visual.",
+    help: "Registra el estado en que llega el vehículo. Elige la severidad, escribe una nota y toca la parte afectada en el diagrama; arrastra para dibujar un rayón. Cada marca queda en la lista de abajo y se puede quitar.",
   },
   {
     id: "checklist",
     label: "Checklist",
-    slot: "Kilometraje, combustible, pertenencias y notas.",
+    help: "Anota el kilometraje y el nivel de combustible, marca lo revisado en el checklist y registra las pertenencias que el cliente deja en el vehículo.",
   },
   {
     id: "review",
     label: "Revisión",
-    slot: "Resumen y creación de la orden de trabajo.",
+    help: "Revisa que los datos del cliente, el vehículo, los daños y el checklist estén correctos. Al confirmar se crea la orden de trabajo y la recepción ya no se edita desde aquí.",
   },
 ] as const;
 
@@ -123,6 +123,7 @@ export function ReceptionWizard() {
             ? `${reception.code} · Paso ${stepIndex + 1} de ${STEPS.length}`
             : `Paso ${stepIndex + 1} de ${STEPS.length}`
         }
+        help={step.help}
         className="mt-4"
       >
         {isParty ? (

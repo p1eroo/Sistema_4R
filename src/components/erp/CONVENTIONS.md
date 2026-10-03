@@ -34,7 +34,8 @@ translúcido y con más desenfoque, para que se note la profundidad:
 
 - `glass-float`: popovers, dropdowns, selects, context menus, hover cards y paneles laterales. Ya está en los
   primitivos de `src/components/ui/`; no reaplicar en los módulos.
-- `glass-bar` (header) y el sidebar usan el mismo vidrio medio.
+- Sidebar y header son **tarjetas flotantes**: separados del borde de la ventana, con esquinas `rounded-lg`, vidrio medio y borde fino, sin sombra. No pegarlos a los bordes ni añadir bordes laterales.
+- Ítem activo del menú: fondo `primary` sólido con texto blanco; subítem activo: fondo tenue con texto `primary` en seminegrita.
 
 Tipografía de menús (ya en los primitivos, no sobrescribir en los módulos):
 
@@ -115,11 +116,12 @@ No crear layouts paralelos, top-nav alternativas ni páginas fuera de `AppShell`
 
 ### Primitivos ERP
 
-| Pieza         | Archivo            | Uso                                                                                                                                     |
-| ------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `MetricCard`  | `dashboard-ui.tsx` | KPI: label `text-xs`, valor `text-lg font-bold tabular-nums`, ícono `size-9`, énfasis `default \| warning \| danger`. Card `shadow-xs`. |
-| `SectionCard` | `dashboard-ui.tsx` | Bloque de contenido: título `text-sm font-bold`, subtítulo `text-[11px] text-muted-foreground`, header con `border-b`, body `p-4`.      |
-| `StatusBadge` | `dashboard-ui.tsx` | Estado operativo: `info \| success \| warning \| danger \| neutral`. `text-[10px] font-bold`, `rounded-md px-2 py-1`.                   |
+| Pieza                  | Archivo            | Uso                                                                                                                                                                                                                                    |
+| ---------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MetricCard`           | `dashboard-ui.tsx` | KPI: label `text-xs`, valor `text-lg font-bold tabular-nums`, ícono `size-9`, énfasis `default \| warning \| danger`. Card `shadow-xs`.                                                                                                |
+| `SectionCard`          | `dashboard-ui.tsx` | Bloque de contenido: título `text-sm font-bold`, subtítulo `text-[11px] text-muted-foreground`, header con `border-b`, body `p-4`.                                                                                                     |
+| Ayuda de `SectionCard` | `dashboard-ui.tsx` | Prop `help`: muestra un botón de ayuda (ícono de interrogación) que abre un popover. Texto corto en segunda persona: para qué sirve el bloque y qué hacer para continuar. Sin `help` ni `action`, la cabecera no muestra ningún botón. |
+| `StatusBadge`          | `dashboard-ui.tsx` | Estado operativo: `info \| success \| warning \| danger \| neutral`. `text-[10px] font-bold`, `rounded-md px-2 py-1`.                                                                                                                  |
 
 Para estados de negocio (OT, stock, citas) usar `StatusBadge`, no `Badge` de shadcn.
 
@@ -182,6 +184,7 @@ AppShell
     section.mx-auto.w-full.max-w-[1680px]
 ```
 
+- El `main` usa `pt-4` desde `sm`: el título queda con el mismo espacio arriba (hasta el header) que abajo (hasta el contenido).
 - Grillas: `gap-3` o `gap-4`. Filtros: `mt-5`; bloques siguientes: `mt-4`.
 - Cards ERP: superficie `glass` (ver §0); sin `shadow-xs` ni `bg-card` manuales.
 - Padding de card ERP: `p-4` (no el `p-6` default de shadcn `Card`).

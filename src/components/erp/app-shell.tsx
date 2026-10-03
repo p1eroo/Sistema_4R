@@ -15,13 +15,13 @@ export function AppShell({ children }: { children: ReactNode }) {
           className="w-full"
           style={
             {
-              "--sidebar-width": "16rem",
+              "--sidebar-width": "16.5rem",
               "--sidebar-width-icon": "4.5rem",
             } as React.CSSProperties
           }
         >
           <AppSidebar />
-          <SidebarInset className="min-w-0 overflow-x-hidden">
+          <SidebarInset className="min-w-0 overflow-x-clip">
             <AppHeader />
             {children}
           </SidebarInset>

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 
 import { CUSTOMER_BRANCHES } from "@/components/customers/customer-list-filters";
@@ -13,8 +12,7 @@ import {
   INSPECTION_STATUS_LABELS,
   inspectionStatusVariant,
 } from "@/components/inspections/inspection-status";
-import { DamageLegend } from "@/components/reception/damage-legend";
-import { DamageMap } from "@/components/reception/damage-map";
+import { DamageInspector } from "@/components/reception/damage-inspector";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -59,10 +57,6 @@ function formatDateTime(value: string | undefined): string {
 
 export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
   const id = asEntityId(inspectionId);
-  const queryClient = useQueryClient();
-  const [view, setView] = useState(DamageView.Front);
-  const [severity, setSeverity] = useState(DamageSeverity.Minor);
-  const [notes, setNotes] = useState("");
 
   const inspectionQuery = useQuery({
     queryKey: ["inspections", id],
@@ -93,40 +87,6 @@ export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
     enabled: Boolean(inspectionQuery.data?.receptionId),
   });
 
-  const invalidate = async () => {
-    await queryClient.invalidateQueries({ queryKey: ["inspections"] });
-  };
-
-  const upsertMutation = useMutation({
-    mutationFn: (zoneId: DamageZoneId) => {
-      const inspection = inspectionQuery.data;
-      if (!inspection) {
-        throw new Error("No se encontró la inspección.");
-      }
-      const trimmed = notes.trim();
-      return inspectionService.upsertDamagePoint(inspection.receptionId, {
-        zoneId,
-        severity,
-        ...(trimmed ? { notes: trimmed } : {}),
-      });
-    },
-    onSuccess: invalidate,
-  });
-
-  const removeMutation = useMutation({
-    mutationFn: (pointId: EntityId) => {
-      const inspection = inspectionQuery.data;
-      if (!inspection) {
-        throw new Error("No se encontró la inspección.");
-      }
-      return inspectionService.removeDamagePoint(
-        inspection.receptionId,
-        pointId,
-      );
-    },
-    onSuccess: invalidate,
-  });
-
   if (inspectionQuery.isLoading) {
     return <LoadingState />;
   }
@@ -150,7 +110,6 @@ export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
   }
 
   const vehicle = vehicleQuery.data;
-  const points = inspection.damagePoints;
   const reception = receptionQuery.data ?? undefined;
   const belongings = (reception?.belongings ?? []).filter(
     (item) => item.label !== PHOTO_LABEL,
@@ -294,72 +253,14 @@ export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
 
       <SectionCard
         title="Mapa de daños"
-        subtitle="Clic en una zona para registrar o actualizar"
+        subtitle="Marca sobre el diagrama la parte afectada"
+        help="Elige la severidad, escribe una nota y toca la parte afectada en el diagrama. Arrastra para dibujar un rayón. Toca un número para resaltar la marca y usa el basurero para quitarla."
       >
-        <div className="space-y-4">
-          <DamageLegend value={severity} onChange={setSeverity} />
-          <label className="block space-y-1.5 text-xs font-medium">
-            Nota del daño
-            <Input
-              value={notes}
-              onChange={(event) => setNotes(event.target.value)}
-              className="bg-white/70"
-              placeholder="Rayón, abolladura…"
-            />
-          </label>
-          <DamageMap
-            view={view}
-            onViewChange={setView}
-            points={points}
-            onSelectZone={(zoneId) => upsertMutation.mutate(zoneId)}
-          />
-          {upsertMutation.isError && (
-            <ErrorState
-              title="No se pudo marcar el daño"
-              message={
-                upsertMutation.error instanceof Error
-                  ? upsertMutation.error.message
-                  : "Inténtalo de nuevo."
-              }
-            />
-          )}
-          {points.length === 0 ? (
-            <EmptyState
-              title="Sin daños"
-              description="Selecciona una zona del mapa."
-            />
-          ) : (
-            <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
-              {points.map((point) => {
-                const zone = findDamageZone(point.zoneId);
-                return (
-                  <li
-                    key={point.id}
-                    className="flex items-center justify-between gap-3 px-3 py-2"
-                  >
-                    <div className="min-w-0">
-                      <p className="text-xs font-semibold">
-                        {zone?.label ?? point.zoneId}
-                      </p>
-                      <p className="truncate text-[11px] text-muted-foreground">
-                        {DAMAGE_SEVERITY_LABELS[point.severity]}
-                        {point.notes ? ` · ${point.notes}` : ""}
-                      </p>
-                    </div>
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => removeMutation.mutate(point.id)}
-                    >
-                      Quitar
-                    </Button>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
+        <DamageInspector
+          receptionId={inspection.receptionId}
+          points={inspection.damagePoints}
+          marks={inspection.damageMarks ?? []}
+        />
       </SectionCard>
 
       <SectionCard

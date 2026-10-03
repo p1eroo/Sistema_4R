@@ -1,3 +1,4 @@
+import type { DamageMark } from "@/domain/inspections/diagram";
 import type { DamageZoneId } from "@/domain/inspections/zones";
 import type { DateTimeIso, EntityId } from "@/domain/shared";
 
@@ -52,6 +53,8 @@ export type Inspection = {
   readonly vehicleId: EntityId;
   readonly status: InspectionStatus;
   readonly damagePoints: readonly DamagePoint[];
+  /** Marcas libres dibujadas sobre el diagrama en planta. */
+  readonly damageMarks?: readonly DamageMark[] | undefined;
   readonly checklist: readonly InspectionChecklistItem[];
   readonly notes?: string | undefined;
   readonly createdAt: DateTimeIso;

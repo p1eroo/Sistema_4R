@@ -244,6 +244,23 @@
   backdrop-filter: var(--glass-float-blur);
 }
 
+/*
+ * Tapa el hueco entre el borde superior de la ventana y un elemento sticky
+ * flotante (header), para que el contenido no asome por encima al hacer scroll.
+ * Pinta el mismo fondo fijo de la app, así no se nota.
+ */
+@utility backdrop-mask-top {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.8125rem -1.5rem auto -1.5rem;
+    height: 0.8125rem;
+    background: var(--app-backdrop), var(--page);
+    background-attachment: fixed;
+    pointer-events: none;
+  }
+}
+
 /* Capas flotantes: popovers, menús, selects, diálogos y paneles laterales. */
 @utility glass-float {
   background-color: var(--glass-float-bg);

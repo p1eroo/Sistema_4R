@@ -197,14 +197,17 @@ function DashboardContent() {
 
   if (snapshotQuery.isLoading) {
     return (
-      <main className="min-w-0 flex-1 p-3 sm:p-5 lg:p-6">
+      <main className="min-w-0 flex-1 p-3 sm:p-5 sm:pt-4 lg:p-6 lg:pt-4">
         <LoadingState variant="page" rows={8} />
       </main>
     );
   }
 
   return (
-    <main id="dashboard-content" className="min-w-0 flex-1 p-3 sm:p-5 lg:p-6">
+    <main
+      id="dashboard-content"
+      className="min-w-0 flex-1 p-3 sm:p-5 sm:pt-4 lg:p-6 lg:pt-4"
+    >
       <section className="mx-auto w-full max-w-[1680px]">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-between">
           <div className="min-w-0">

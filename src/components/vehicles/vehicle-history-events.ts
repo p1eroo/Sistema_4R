@@ -3,7 +3,11 @@ import {
   APPOINTMENT_STATUS_LABELS,
   type Appointment,
 } from "@/domain/appointments";
-import { InspectionStatus, type Inspection } from "@/domain/inspections";
+import {
+  InspectionStatus,
+  inspectionDamageCount,
+  type Inspection,
+} from "@/domain/inspections";
 import type { Reception } from "@/domain/reception";
 import { ReceptionStatus } from "@/domain/reception";
 import type { EntityId } from "@/domain/shared";
@@ -85,9 +89,9 @@ export function buildVehicleHistory({
       kind: VehicleHistoryKind.Inspection,
       at: inspection.updatedAt,
       title: `Inspección ${inspection.id}`,
-      meta: `${INSPECTION_STATUS_LABELS[inspection.status]} · ${
-        inspection.damagePoints.length
-      } daños`,
+      meta: `${INSPECTION_STATUS_LABELS[inspection.status]} · ${inspectionDamageCount(
+        inspection,
+      )} daños`,
       href: { to: "/taller/inspecciones/$id", id: inspection.id },
     });
   }

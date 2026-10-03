@@ -17,7 +17,7 @@ import {
 } from "@/components/reception/reception-review-handoff";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { DAMAGE_SEVERITY_LABELS, findDamageZone } from "@/domain/inspections";
+import { DAMAGE_SEVERITY_LABELS } from "@/domain/inspections";
 import { FuelLevel, ReceptionStatus, type Reception } from "@/domain/reception";
 import type { EntityId } from "@/domain/shared";
 import type { WorkOrder } from "@/domain/work-orders";
@@ -239,7 +239,14 @@ export function ReceptionReviewStep({
   const photos = reception.belongings.filter(
     (item) => item.label === PHOTO_LABEL && item.notes,
   );
-  const damagePoints = inspection?.damagePoints ?? [];
+  const damages = [
+    ...(inspection?.damagePoints ?? []),
+    ...(inspection?.damageMarks ?? []),
+  ].map((item) => ({
+    id: item.id,
+    label: item.notes ?? "Sin nota",
+    severity: item.severity,
+  }));
 
   return (
     <div className="space-y-5">
@@ -354,23 +361,19 @@ export function ReceptionReviewStep({
 
       <div className="space-y-2">
         <p className="text-xs font-semibold">Daños registrados</p>
-        {damagePoints.length === 0 ? (
+        {damages.length === 0 ? (
           <p className="text-[11px] text-muted-foreground">
             Sin puntos de daño.
           </p>
         ) : (
           <ul className="space-y-2">
-            {damagePoints.map((point) => {
-              const zone = findDamageZone(point.zoneId);
+            {damages.map((point) => {
               return (
                 <li
                   key={point.id}
                   className="flex items-center justify-between gap-2 rounded-lg border border-border/60 bg-white/50 px-3 py-2"
                 >
-                  <span className="text-xs">
-                    {zone?.label ?? point.zoneId}
-                    {point.notes ? ` · ${point.notes}` : ""}
-                  </span>
+                  <span className="text-xs">{point.label}</span>
                   <StatusBadge variant={SEVERITY_TOKEN[point.severity].token}>
                     {DAMAGE_SEVERITY_LABELS[point.severity]}
                   </StatusBadge>

@@ -28,7 +28,7 @@ import {
   INSPECTION_STATUS_LABELS,
   inspectionStatusVariant,
 } from "@/components/inspections/inspection-status";
-import { InspectionStatus } from "@/domain/inspections";
+import { InspectionStatus, inspectionDamageCount } from "@/domain/inspections";
 import { vehicleDisplayName } from "@/domain/vehicles";
 import { inspectionService } from "@/mocks/inspections/service";
 import { vehicleService } from "@/mocks/vehicles/service";
@@ -173,7 +173,7 @@ export function InspectionList() {
                       </p>
                     </TableCell>
                     <TableCell className="text-xs tabular-nums">
-                      {inspection.damagePoints.length}
+                      {inspectionDamageCount(inspection)}
                     </TableCell>
                     <TableCell>
                       <StatusBadge
