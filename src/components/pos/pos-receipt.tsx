@@ -157,7 +157,7 @@ export function PosReceipt({
           </p>
         </div>
 
-        <DialogFooter className="gap-2 print:hidden sm:gap-0">
+        <DialogFooter className="print:hidden">
           <Button variant="outline" onClick={() => window.print()}>
             <Printer className="size-4" />
             Imprimir

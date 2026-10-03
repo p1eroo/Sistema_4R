@@ -50,7 +50,7 @@ export function ModulePage({
   useRegisterPageChrome(chrome);
 
   return (
-    <main className="min-w-0 flex-1 bg-background p-3 sm:p-5 lg:p-6">
+    <main className="min-w-0 flex-1 p-3 sm:p-5 lg:p-6">
       <section className="mx-auto w-full max-w-[1680px]">
         {hideHeader ? (
           <h1 className="sr-only">{chromeTitle}</h1>

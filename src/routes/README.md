@@ -28,7 +28,7 @@ file.
 ## Layout decision (C-002)
 
 - `/` (Dashboard) stays in `src/routes/index.tsx` and keeps wrapping `AppShell`
-  itself so the Lovable dashboard is not moved or redesigned.
+  itself so the dashboard is not moved.
 - Every other module route is a child of the pathless layout `src/routes/_erp.tsx`.
   That layout mounts `AppShell` once. Stubs only render page content.
 

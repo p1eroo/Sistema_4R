@@ -17,6 +17,10 @@ tasks/
     todo/
     doing/
     done/
+  claude/
+    todo/
+    doing/
+    done/
   blocked/
 ```
 
@@ -24,12 +28,15 @@ Un archivo Markdown = una tarea. IDs:
 
 - Cursor: `C-001`, `C-002`, …
 - OpenCode: `O-001`, `O-002`, …
+- Claude: `CL-001`, `CL-002`, …
 
 Ejemplo: `tasks/cursor/todo/C-001-design-system-audit.md`
 
 ## Agent ownership
 
 **Cursor** toma decisiones de arquitectura, design system, UI/UX compleja, workflows, estado cruzado e integración.
+
+**Claude** (`tasks/claude/`, IDs `CL-NNN`) toma el rediseño Glass de PHASE 11: tokens, shell, primitivos de referencia, pantallas complejas y QA final.
 
 **OpenCode** toma tipos, schemas Zod, seeds, mock services, helpers, CRUD/tablas/forms simples, data-states y tests.
 
@@ -86,8 +93,8 @@ npm run test
 - `AppShell`, `AppSidebar`, `AppHeader`
 - Design tokens (`primary`, `success`, `warning`, `info`, `critical`)
 - shadcn/Radix primitives
-- Dashboard visual en `/` con datos hardcodeados
+- Dashboard visual en `/`
 
 ## Product constraint
 
-Frontend only. No API real. Lovable es la fuente visual. Commits en la rama conectada deben dejar el proyecto en estado usable.
+Frontend only. No API real. La fuente visual es `src/components/erp/CONVENTIONS.md`. Cada tarea debe dejar el proyecto en estado usable.

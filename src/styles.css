@@ -70,24 +70,24 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.975 0.006 255);
+  --background: oklch(1 0 0 / 72%);
   --foreground: oklch(0.278 0.029 256);
-  --card: oklch(1 0 0);
+  --card: oklch(1 0 0 / 86%);
   --card-foreground: oklch(0.278 0.029 256);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0 / 96%);
+  --popover-foreground: oklch(0.278 0.029 256);
   --primary: oklch(0.457 0.119 237.1);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.956 0.013 246);
+  --secondary: oklch(0.457 0.119 237.1 / 9%);
   --secondary-foreground: oklch(0.36 0.085 245);
-  --muted: oklch(0.966 0.006 255);
-  --muted-foreground: oklch(0.55 0.022 257);
-  --accent: oklch(0.94 0.026 243);
+  --muted: oklch(0.5 0.04 255 / 8%);
+  --muted-foreground: oklch(0.5 0.022 257);
+  --accent: oklch(0.457 0.119 237.1 / 11%);
   --accent-foreground: oklch(0.36 0.085 245);
   --destructive: oklch(0.56 0.22 26);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.92 0.01 255);
-  --input: oklch(0.9 0.012 255);
+  --border: oklch(0.5 0.04 255 / 14%);
+  --input: oklch(0.5 0.04 255 / 22%);
   --ring: oklch(0.457 0.119 237.1);
   --success: oklch(0.57 0.17 145);
   --warning: oklch(0.72 0.17 75);
@@ -100,14 +100,45 @@
   --chart-3: oklch(0.72 0.17 75);
   --chart-4: oklch(0.56 0.22 26);
   --chart-5: oklch(0.57 0.11 285);
-  --sidebar: oklch(0.985 0.003 250);
+  --sidebar: oklch(1 0 0 / 64%);
   --sidebar-foreground: oklch(0.28 0.04 252);
   --sidebar-primary: oklch(0.457 0.119 237.1);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.94 0.026 243);
+  --sidebar-accent: oklch(0.457 0.119 237.1 / 11%);
   --sidebar-accent-foreground: oklch(0.36 0.085 245);
-  --sidebar-border: oklch(0.91 0.012 250);
+  --sidebar-border: oklch(0.5 0.04 255 / 12%);
   --sidebar-ring: oklch(0.457 0.119 237.1);
+
+  /* Glass (v2, variante suave): vidrio sutil sobre un fondo casi plano. */
+  --page: oklch(0.972 0.008 250);
+  --app-backdrop:
+    radial-gradient(
+      60rem 40rem at 8% -10%,
+      oklch(0.9 0.05 240 / 45%),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 36rem at 105% 8%,
+      oklch(0.93 0.04 20 / 30%),
+      transparent 60%
+    );
+  --glass-bg: oklch(1 0 0 / 86%);
+  --glass-bg-strong: oklch(1 0 0 / 95%);
+  --glass-bg-subtle: oklch(1 0 0 / 60%);
+  --glass-border: oklch(0.9 0.012 255 / 90%);
+  --glass-highlight: inset 0 1px 0 oklch(1 0 0 / 90%);
+  --glass-shadow:
+    0 1px 2px oklch(0.3 0.03 256 / 5%),
+    0 8px 24px -14px oklch(0.3 0.05 256 / 18%);
+  --glass-blur: blur(10px);
+  /* Capas flotantes y shell: vidrio medio (más translúcido y con más blur). */
+  --glass-float-bg: oklch(1 0 0 / 78%);
+  --glass-float-border: oklch(1 0 0 / 80%);
+  --glass-float-blur: blur(20px) saturate(160%);
+  --glass-float-shadow:
+    0 0 0 1px oklch(0.4 0.05 255 / 9%), 0 2px 6px oklch(0.3 0.05 256 / 8%),
+    0 18px 44px -14px oklch(0.3 0.08 255 / 32%);
+  --glass-shell-bg: oklch(1 0 0 / 64%);
 }
 
 .dark {
@@ -150,12 +181,108 @@
     border-color: var(--color-border);
   }
 
+  html {
+    background-color: var(--page);
+  }
+
+  /* Fondo fijo de la app: los wrappers de página son transparentes. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--app-backdrop), var(--page);
+    pointer-events: none;
+  }
+
   body {
-    background-color: var(--color-background);
+    background-color: transparent;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
+  }
+}
+
+/*
+ * Superficies Glass. Traen fondo, borde, radio, sombra, brillo y desenfoque:
+ * no añadir border/bg-card/shadow encima. Ver CONVENTIONS.md §0.
+ */
+@utility glass {
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+@utility glass-strong {
+  background-color: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+@utility glass-subtle {
+  background-color: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+/* Barra de vidrio sin radio ni bordes laterales (header sticky). */
+@utility glass-bar {
+  background-color: var(--glass-shell-bg);
+  border-bottom: 1px solid var(--glass-float-border);
+  box-shadow: 0 8px 24px -18px oklch(0.35 0.1 250 / 35%);
+  -webkit-backdrop-filter: var(--glass-float-blur);
+  backdrop-filter: var(--glass-float-blur);
+}
+
+/* Capas flotantes: popovers, menús, selects, diálogos y paneles laterales. */
+@utility glass-float {
+  background-color: var(--glass-float-bg);
+  border: 1px solid var(--glass-float-border);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    var(--glass-float-shadow),
+    inset 0 1px 0 oklch(1 0 0 / 95%);
+  -webkit-backdrop-filter: var(--glass-float-blur);
+  backdrop-filter: var(--glass-float-blur);
+}
+
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  :root {
+    --glass-bg: oklch(1 0 0 / 94%);
+    --glass-bg-subtle: oklch(1 0 0 / 88%);
+    --glass-bg-strong: oklch(1 0 0 / 98%);
+    --glass-float-bg: oklch(1 0 0 / 98%);
+    --glass-shell-bg: oklch(1 0 0 / 96%);
+    --card: oklch(1 0 0 / 94%);
+    --sidebar: oklch(1 0 0 / 94%);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg: oklch(1 0 0);
+    --glass-bg-subtle: oklch(0.985 0.004 250);
+    --glass-bg-strong: oklch(1 0 0);
+    --glass-blur: none;
+    --glass-float-bg: oklch(1 0 0);
+    --glass-float-blur: none;
+    --glass-shell-bg: oklch(1 0 0);
+    --card: oklch(1 0 0);
+    --popover: oklch(1 0 0);
+    --background: oklch(0.985 0.004 250);
+    --sidebar: oklch(1 0 0);
   }
 }
 

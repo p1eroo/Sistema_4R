@@ -22,7 +22,7 @@ export function MetricCard({
   emphasis?: "default" | "warning" | "danger";
 }) {
   return (
-    <Card className="min-w-0 shadow-xs">
+    <Card className="min-w-0">
       <CardContent className="p-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
@@ -69,8 +69,8 @@ export function SectionCard({
   className?: string;
 }) {
   return (
-    <Card className={cn("min-w-0 shadow-xs", className)}>
-      <CardHeader className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 border-b border-border px-4 py-3.5">
+    <Card className={cn("min-w-0", className)}>
+      <CardHeader className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 border-b border-border/60 px-4 py-3.5">
         <div className="min-w-0">
           <CardTitle className="truncate text-sm font-bold">{title}</CardTitle>
           {subtitle && (

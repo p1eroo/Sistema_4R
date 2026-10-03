@@ -1,14 +1,3 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
-
 ## Package manager
 
 This project uses **npm** as the only package manager.
@@ -25,8 +14,9 @@ This project uses **npm** as the only package manager.
 - All ERP modules must reuse the shared `AppShell`, sidebar, header, semantic tokens, and ERP UI primitives because the product must remain visually coherent across every workflow.
 - This repository is frontend-only.
 - Persist nothing to a real backend; use in-memory mock services or frontend mock repositories.
-- Do not redesign the Lovable UI.
-- The current dashboard, layout, spacing, typography, tokens, and interaction patterns are the visual source of truth.
+- The UI follows the **Glass** design system (CSS only, light theme). Redesign work happens only inside assigned PHASE 11 tasks (see `tasks/TASKS.md`); do not invent a different look.
+- No WebGL, canvas or heavy visual libraries for effects.
+- `src/components/erp/CONVENTIONS.md` is the visual source of truth for layout, spacing, typography, tokens, and interaction patterns.
 - Prefer extending existing components over creating duplicate alternatives.
 - Do not introduce Material UI unless explicitly requested.
 - Prefer the existing shadcn/ui, Tailwind, Radix, and Lucide stack.
@@ -56,6 +46,10 @@ Task locations:
 - OpenCode tasks:
   `tasks/opencode/{todo,doing,done}`
   IDs: `O-NNN`
+
+- Claude tasks:
+  `tasks/claude/{todo,doing,done}`
+  IDs: `CL-NNN`
 
 - Blocked tasks:
   `tasks/blocked/`
@@ -127,6 +121,13 @@ Cursor should primarily handle:
 - complex dashboards
 - final visual integration
 
+Claude should primarily handle (PHASE 11 — Rediseño Glass):
+
+- design tokens and glass utilities (`src/styles.css`)
+- shared shell and reference primitives (`src/components/erp/*`, core `src/components/ui/*`)
+- complex screens (dashboard, POS, workshop flows)
+- final visual QA
+
 OpenCode should primarily handle:
 
 - TypeScript types
@@ -145,7 +146,7 @@ OpenCode should primarily handle:
 - tests
 - repetitive frontend implementation
 
-Do not have Cursor and OpenCode edit the same files at the same time.
+Do not have two agents (Cursor, OpenCode, Claude) edit the same files at the same time.
 
 Prefer the file ownership and Expected Files sections defined in each task.
 

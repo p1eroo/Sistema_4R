@@ -159,7 +159,7 @@ export function CashSessionPanel({
           </p>
         ) : null}
 
-        <DialogFooter className="gap-2 sm:gap-0">
+        <DialogFooter>
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cerrar panel
           </Button>

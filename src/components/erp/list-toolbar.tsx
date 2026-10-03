@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
  * the same height, radius, border and flat (shadow-less) surface.
  */
 export const toolbarControlClass =
-  "h-9 rounded-md border-input bg-card shadow-none";
+  "h-9 rounded-lg border-input bg-white/70 shadow-none";
 
 /**
  * Lightweight list-page toolbar.

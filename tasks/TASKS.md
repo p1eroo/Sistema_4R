@@ -1,12 +1,31 @@
 # 4 RUEDAS FRONTEND TASK BOARD
 
 Prototipo frontend-only para **4 RUEDAS Mecánica Automotriz**.
-Fuente visual de verdad: UI Lovable actual (`AppShell`, sidebar, header, tokens, dashboard en `/`).
-No rediseñar. Completar flujos con mock services.
+Fuente visual de verdad: `src/components/erp/CONVENTIONS.md` (`AppShell`, sidebar, header, tokens, dashboard en `/`).
+En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Claude y OpenCode.
 
 ## Current Phase
 
-**Prototipo frontend listo para demo** (PHASE 0–10 completas)
+**PHASE 11 — Rediseño Glass** (PHASE 0–10 completas)
+
+## Claude
+
+### TODO
+- [ ] CL-006 Dashboard en glass
+- [ ] CL-007 POS en glass (4 pantallas)
+- [ ] CL-008 Taller A en glass
+- [ ] CL-009 Taller B en glass
+- [ ] CL-010 QA final del rediseño Glass
+
+### DOING
+
+### DONE
+- [x] CL-001 Quitar Lovable y poner favicon de 4 RUEDAS
+- [x] CL-002 Dirección visual y reglas del rediseño Glass (variante vigente: Glass suave + vidrio medio en capas flotantes y shell)
+- [x] CL-003 Tokens y utilidades glass + fondo de degradados
+- [x] CL-004 Shell glass: sidebar, header y page header
+- [x] CL-005 Primitivos de referencia en glass
+- [x] CL-011 Capas flotantes en vidrio medio y menús con tipografía de ERP
 
 ## Cursor
 
@@ -64,6 +83,14 @@ No rediseñar. Completar flujos con mock services.
 ## OpenCode
 
 ### TODO
+- [ ] O-055 Resto de primitivos shadcn en glass (sin capas flotantes: hechas en CL-011)
+- [ ] O-056 Clientes y Proveedores en glass
+- [ ] O-057 Productos, servicios, catálogo y precios en glass
+- [ ] O-058 Compras en glass
+- [ ] O-059 Inventario en glass
+- [ ] O-060 Usuarios, sedes y configuración en glass
+- [ ] O-061 Reportes en glass
+- [ ] O-062 Tests de primitivos y guardia de superficies ad-hoc
 
 ### DOING
 
@@ -131,7 +158,7 @@ No rediseñar. Completar flujos con mock services.
 - Ya existe y **no se reimplementa**: `AppShell`, `AppSidebar`, `AppHeader`, tokens en `src/styles.css`, primitivos shadcn, `MetricCard` / `SectionCard` / `StatusBadge`, y el layout visual del dashboard en `src/routes/index.tsx`.
 - Las rutas de módulo bajo `_erp` son pantallas reales (mocks). Sidebar + breadcrumbs alineados en C-041. AppHeader dinámico (C-040).
 - Ya existen primitivos en `src/domain/shared`, data-states, scripts `typecheck` / `test` (O-001–O-006), mocks y forms de Customer/Vehicle (O-007–O-016).
-- Bahías del taller no está en el menú Lovable; C-002 debe añadirla al mapa porque forma parte del alcance.
+- Bahías del taller no estaba en el menú original; C-002 la añadió al mapa porque forma parte del alcance.
 - **No dos agentes sobre el mismo archivo a la vez.** Ownership típico:
   - Cursor: `src/routes/**`, `src/components/erp/app-*.tsx`, `page-header`, wizards, kanban, POS, damage map, dashboard.
   - OpenCode: `src/domain/**`, `src/mocks/**`, schemas, forms simples, data-states, tablas simples, tests.
@@ -140,10 +167,16 @@ No rediseñar. Completar flujos con mock services.
 - C-002 toca el sidebar en Phase 0; C-033 solo el footer de caja; C-041 el pase final de nav. No solapar esas ventanas.
 - Preferir IDs y nombres canónicos del dashboard: `OT-2026-0184`, `ABC-123`, `B4X-521`, `F001-00982`, Lucía Ramos, Carlos Mendoza, Sede La Molina.
 
+- **PHASE 11 (Rediseño Glass)**: OpenCode no empieza O-055…O-062 hasta que **CL-005** esté en DONE.
+  Durante el rollout nadie edita `src/styles.css`, `src/components/erp/*` ni `src/components/ui/*` salvo su dueño
+  (CL-003 / CL-004 / CL-005 / O-055). Si un módulo necesita un token nuevo, la tarea se bloquea y se pide a Claude.
+  Solo CSS: no se agregan dependencias (se descartaron `shadergradient` y `liquid-glass-js` por peso).
+
 ### Recommended first tasks
 
-- Cursor: backlog vacío (C-001–C-044 DONE).
-- OpenCode: backlog vacío (O-001–O-054 DONE).
+- Claude: CL-006 → CL-007 → CL-008 → CL-009, luego CL-010.
+- OpenCode: **desbloqueado** (CL-005 DONE). Empezar por O-055 … O-059; leer antes `src/components/erp/CONVENTIONS.md` §0.
+- Cursor: sin tareas nuevas (C-001–C-045 DONE).
 
 ## Phase Progress
 
@@ -159,6 +192,7 @@ No rediseñar. Completar flujos con mock services.
 | 7 | Dashboard | C-034 – C-035 | O-047 | Done |
 | 8 | Reports | C-036 – C-037 | O-048 | Done |
 | 9 | Users / Branches / Settings | C-038 – C-040 | O-049 – O-052 | Done |
-| 10 | Frontend integration and QA | C-041 – C-044 | O-053 – O-054 | Done |
+| 10 | Frontend integration and QA | C-041 – C-045 | O-053 – O-054 | Done |
+| 11 | Rediseño Glass | Claude: CL-001 – CL-010 | O-055 – O-062 | In progress |
 
-Counts: **44 Cursor** · **54 OpenCode** · **98 total** · **0 blocked** · **0 doing** · **98 done**
+Counts: **45 Cursor** · **62 OpenCode** · **11 Claude** · **118 total** · **0 blocked** · **0 doing** · **105 done**

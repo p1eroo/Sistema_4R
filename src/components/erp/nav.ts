@@ -31,7 +31,7 @@ export type NavGroup = {
 
 /**
  * Contrato de navegación del prototipo.
- * Paths en español, alineados al menú Lovable.
+ * Paths en español, alineados al menú lateral.
  * `file` es la ruta file-based bajo `src/routes/` (no editar routeTree.gen.ts).
  * Dashboard permanece en `index.tsx` (fuera de `_erp`) para no alterar su UI.
  * El resto de módulos cuelga del layout pathless `_erp.tsx` que monta AppShell.

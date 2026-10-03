@@ -77,7 +77,7 @@ export function CollapsedNavFlyout({
           onPointerEnter={openMenu}
           onPointerLeave={scheduleClose}
           onOpenAutoFocus={(event: Event) => event.preventDefault()}
-          className="min-w-56 rounded-lg border-border/70 shadow-lg"
+          className="min-w-56"
         >
           <DropdownMenuLabel>{label}</DropdownMenuLabel>
           <DropdownMenuSeparator />
