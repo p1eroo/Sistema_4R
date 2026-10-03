@@ -26,7 +26,7 @@ export function DamageLegend({
                 "inline-flex min-h-9 items-center gap-2 rounded-md border px-3 py-1.5 text-xs font-semibold",
                 active
                   ? "border-primary bg-primary/10"
-                  : "border-border bg-card",
+                  : "border-border bg-white/70",
               )}
               aria-pressed={active}
             >

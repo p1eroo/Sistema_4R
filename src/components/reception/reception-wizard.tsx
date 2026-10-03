@@ -93,8 +93,8 @@ export function ReceptionWizard() {
                 className={cn(
                   "flex w-full items-center gap-2 rounded-lg border px-3 py-2 text-left",
                   active && "border-primary bg-primary/10",
-                  done && !active && "border-border bg-card",
-                  !active && !done && "border-border bg-card",
+                  done && !active && "border-border bg-white/70",
+                  !active && !done && "border-border bg-white/70",
                 )}
               >
                 <span

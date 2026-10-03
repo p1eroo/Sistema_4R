@@ -106,7 +106,7 @@ export function VehicleList() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Buscar por placa, marca o VIN"
-            className="border-input bg-card shadow-none pl-9"
+            className="border-input bg-white/70 shadow-none pl-9"
             aria-label="Buscar vehículos"
           />
         </div>

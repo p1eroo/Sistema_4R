@@ -100,7 +100,7 @@ export function InspectionList() {
         />
         <Select value={status} onValueChange={setStatus}>
           <SelectTrigger
-            className="w-full border-input bg-card shadow-none sm:w-48"
+            className="w-full border-input bg-white/70 shadow-none sm:w-48"
             aria-label="Filtrar por estado"
           >
             <SelectValue placeholder="Estado" />

@@ -85,7 +85,7 @@ export function AppointmentForm({
             }
           }}
         >
-          <SelectTrigger id="cita-cliente" className="bg-background">
+          <SelectTrigger id="cita-cliente" className="bg-white/70">
             <SelectValue placeholder="Selecciona cliente" />
           </SelectTrigger>
           <SelectContent>
@@ -105,7 +105,7 @@ export function AppointmentForm({
           onValueChange={setVehicleId}
           disabled={!customerId}
         >
-          <SelectTrigger id="cita-vehiculo" className="bg-background">
+          <SelectTrigger id="cita-vehiculo" className="bg-white/70">
             <SelectValue placeholder="Selecciona vehículo" />
           </SelectTrigger>
           <SelectContent>
@@ -126,14 +126,14 @@ export function AppointmentForm({
             type="time"
             value={time}
             onChange={(event) => setTime(event.target.value)}
-            className="bg-background"
+            className="bg-white/70"
             required
           />
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="cita-duracion">Duración</Label>
           <Select value={duration} onValueChange={setDuration}>
-            <SelectTrigger id="cita-duracion" className="bg-background">
+            <SelectTrigger id="cita-duracion" className="bg-white/70">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -151,7 +151,7 @@ export function AppointmentForm({
         <div className="space-y-1.5">
           <Label htmlFor="cita-sede">Sede</Label>
           <Select value={branchId} onValueChange={setBranchId}>
-            <SelectTrigger id="cita-sede" className="bg-background">
+            <SelectTrigger id="cita-sede" className="bg-white/70">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -171,7 +171,7 @@ export function AppointmentForm({
               setServiceType(value as AppointmentServiceType)
             }
           >
-            <SelectTrigger id="cita-servicio" className="bg-background">
+            <SelectTrigger id="cita-servicio" className="bg-white/70">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -191,7 +191,7 @@ export function AppointmentForm({
           id="cita-notas"
           value={notes}
           onChange={(event) => setNotes(event.target.value)}
-          className="bg-background"
+          className="bg-white/70"
           placeholder="Opcional"
         />
       </div>

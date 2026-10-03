@@ -260,7 +260,7 @@ export function ReceptionChecklistStep({
             onChange={(event) =>
               setOdometerKm(Math.max(0, Number(event.target.value) || 0))
             }
-            className="bg-background tabular-nums"
+            className="bg-white/70 tabular-nums"
           />
         </label>
         <div className="space-y-2">
@@ -283,7 +283,7 @@ export function ReceptionChecklistStep({
         <p className="text-[11px] text-muted-foreground">
           Marca lo que esté OK. Lo que quede sin marcar se considera con falla.
         </p>
-        <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+        <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
           {RECEPTION_CHECKLIST_CATALOG.map((item) => {
             const current = checklist.find((entry) => entry.id === item.id);
             const checked = current?.checked ?? false;
@@ -318,7 +318,7 @@ export function ReceptionChecklistStep({
         <p className="text-[11px] text-muted-foreground">
           Marca lo que esté OK. Lo que quede sin marcar se considera con falla.
         </p>
-        <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+        <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
           {INSPECTION_CHECKLIST_CATALOG.map((item) => {
             const current = inspectionItems.find(
               (entry) => entry.id === item.id,
@@ -385,7 +385,7 @@ export function ReceptionChecklistStep({
                   )
                 }
                 placeholder="Llaves, laptop…"
-                className="bg-background"
+                className="bg-white/70"
                 aria-label="Pertenencia"
               />
               <Input
@@ -407,7 +407,7 @@ export function ReceptionChecklistStep({
                     ),
                   )
                 }
-                className="w-20 bg-background tabular-nums"
+                className="w-20 bg-white/70 tabular-nums"
                 aria-label="Cantidad"
               />
               <Button
@@ -462,7 +462,7 @@ export function ReceptionChecklistStep({
                     ),
                   )
                 }
-                className="bg-background"
+                className="bg-white/70"
                 aria-label="URL de foto"
               />
               <Button
@@ -487,7 +487,7 @@ export function ReceptionChecklistStep({
           value={observations}
           onChange={(event) => setObservations(event.target.value)}
           rows={3}
-          className="bg-background text-xs font-normal"
+          className="bg-white/70 text-xs font-normal"
         />
       </label>
 

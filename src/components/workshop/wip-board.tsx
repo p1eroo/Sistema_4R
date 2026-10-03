@@ -132,7 +132,7 @@ export function WipBoard() {
         />
         <Select value={branchId} onValueChange={setBranchId}>
           <SelectTrigger
-            className="w-full border-input bg-card shadow-none sm:w-48"
+            className="w-full border-input bg-white/70 shadow-none sm:w-48"
             aria-label="Filtrar por sede"
           >
             <SelectValue placeholder="Sede" />
@@ -161,10 +161,7 @@ export function WipBoard() {
         {COLUMNS.map((status) => {
           const cards = board[status].filter(matches);
           return (
-            <section
-              key={status}
-              className="min-w-0 rounded-xl border border-border bg-card p-3 shadow-xs"
-            >
+            <section key={status} className="min-w-0 glass p-3">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <StatusBadge variant={workOrderStatusVariant(status)}>
                   {WORK_ORDER_STATUS_LABELS[status]}
@@ -187,7 +184,7 @@ export function WipBoard() {
                     return (
                       <li
                         key={order.id}
-                        className="rounded-lg border border-border bg-background p-3"
+                        className="rounded-lg border border-border/60 bg-white/50 p-3"
                       >
                         <button
                           type="button"
@@ -225,7 +222,7 @@ export function WipBoard() {
                               }
                             >
                               <SelectTrigger
-                                className="h-8 bg-card text-[11px]"
+                                className="h-8 bg-white/70 text-[11px]"
                                 aria-label={`Mover ${order.code}`}
                               >
                                 <SelectValue placeholder="Mover a" />

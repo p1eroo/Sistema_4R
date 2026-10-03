@@ -89,7 +89,7 @@ export function EstimateReadout({ estimate }: { estimate: Estimate }) {
         </StatusBadge>
       }
     >
-      <ul className="divide-y divide-border rounded-lg border border-border">
+      <ul className="divide-y divide-border/60 rounded-lg border border-border">
         {estimate.lines.map((line) => (
           <li
             key={line.id}
@@ -209,7 +209,7 @@ export function EstimateBuilder({
                 )
               }
             >
-              <SelectTrigger className="bg-background" aria-label="Tipo">
+              <SelectTrigger className="bg-white/70" aria-label="Tipo">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -232,7 +232,7 @@ export function EstimateBuilder({
                 )
               }
               placeholder="Descripción libre"
-              className="bg-background"
+              className="bg-white/70"
               aria-label="Descripción"
             />
             <Input
@@ -248,7 +248,7 @@ export function EstimateBuilder({
                   ),
                 )
               }
-              className="bg-background tabular-nums"
+              className="bg-white/70 tabular-nums"
               aria-label="Cantidad"
             />
             <Input
@@ -262,7 +262,7 @@ export function EstimateBuilder({
                   ),
                 )
               }
-              className="bg-background tabular-nums"
+              className="bg-white/70 tabular-nums"
               aria-label="Precio unitario"
             />
             <Button

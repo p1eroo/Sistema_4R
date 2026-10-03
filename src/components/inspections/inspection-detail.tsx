@@ -250,7 +250,7 @@ export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
             title="Ingreso al taller"
             subtitle="Marcado = OK · Sin marcar = falla"
           >
-            <ul className="divide-y divide-border rounded-lg border border-border bg-background">
+            <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
               {reception.checklist.map((item) => (
                 <li
                   key={item.id}
@@ -303,7 +303,7 @@ export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
             <Input
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
-              className="bg-background"
+              className="bg-white/70"
               placeholder="Rayón, abolladura…"
             />
           </label>
@@ -329,7 +329,7 @@ export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
               description="Selecciona una zona del mapa."
             />
           ) : (
-            <ul className="divide-y divide-border rounded-lg border border-border bg-background">
+            <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
               {points.map((point) => {
                 const zone = findDamageZone(point.zoneId);
                 return (
@@ -372,7 +372,7 @@ export function InspectionDetail({ inspectionId }: { inspectionId: string }) {
             description="No se registró revisión de inspección."
           />
         ) : (
-          <ul className="divide-y divide-border rounded-lg border border-border bg-background">
+          <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
             {inspection.checklist.map((item) => (
               <li
                 key={item.id}

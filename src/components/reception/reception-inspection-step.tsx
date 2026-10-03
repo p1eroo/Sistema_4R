@@ -100,7 +100,7 @@ export function ReceptionInspectionStep({
         <Input
           value={notes}
           onChange={(event) => setNotes(event.target.value)}
-          className="bg-background"
+          className="bg-white/70"
           placeholder="Rayón, abolladura…"
         />
       </label>
@@ -121,7 +121,7 @@ export function ReceptionInspectionStep({
         />
       )}
       {points.length > 0 && (
-        <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+        <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
           {points.map((point) => {
             const zone = findDamageZone(point.zoneId);
             return (

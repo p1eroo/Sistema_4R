@@ -4,7 +4,7 @@
 Claude
 
 ## Status
-TODO
+DONE
 
 ## Priority
 Medium
@@ -40,8 +40,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - Solo clases y composición visual.
 
 ## Acceptance Criteria
-- [ ] Todas las pantallas del alcance usan el estilo glass sin superficies ad-hoc.
-- [ ] Sin regresiones funcionales; tests del módulo pasan.
+- [x] Todas las pantallas del alcance usan el estilo glass sin superficies ad-hoc.
+- [x] Sin regresiones funcionales; tests del módulo pasan.
 
 ## Verification
 - npm run typecheck
@@ -49,7 +49,7 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - npm run test
 
 ## Completion Report
-- Files changed:
-- Features completed:
-- Tests:
-- Remaining issues:
+- Files changed: `src/components/{reception,inspections,diagnostics}/*.tsx` (6 archivos).
+- Features completed: Tarjetas ad-hoc pasan a `glass`; listas y bloques internos a fondo translúcido sin blur; controles de toolbar con el fondo estándar; separadores suavizados. Sin cambios de lógica.
+- Tests: `npm run typecheck` OK; `npm run lint` 0 errores; `npm run test` OK.
+- Remaining issues: Capturada solo Recepción (paso 1). Mapa de daños, inspecciones y diagnósticos no se revisaron visualmente. Queda para CL-010.

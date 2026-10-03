@@ -127,7 +127,7 @@ export function DeliveryForm({
               id={`dlv-recibe-${delivery.id}`}
               value={receivedBy}
               onChange={(event) => setReceivedBy(event.target.value)}
-              className="bg-background"
+              className="bg-white/70"
             />
           </div>
           <div className="space-y-1.5">
@@ -138,7 +138,7 @@ export function DeliveryForm({
               min={0}
               value={mileageKm}
               onChange={(event) => setMileageKm(event.target.value)}
-              className="bg-background"
+              className="bg-white/70"
               placeholder="Opcional"
             />
           </div>

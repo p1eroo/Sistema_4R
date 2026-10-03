@@ -121,7 +121,7 @@ export function DiagnosticForm({
             id="diagnostic-summary"
             value={summary}
             onChange={(event) => setSummary(event.target.value)}
-            className="bg-background"
+            className="bg-white/70"
             placeholder="Describe el diagnóstico…"
             required
           />
@@ -145,7 +145,7 @@ export function DiagnosticForm({
             {findings.map((finding, index) => (
               <li
                 key={finding.id ?? `new-${index}`}
-                className="space-y-2 rounded-lg border border-border bg-background p-3"
+                className="space-y-2 rounded-lg border border-border/60 bg-white/50 p-3"
               >
                 <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_10rem]">
                   <Input
@@ -154,7 +154,7 @@ export function DiagnosticForm({
                       updateFinding(index, { title: event.target.value })
                     }
                     placeholder="Título del hallazgo"
-                    className="bg-card"
+                    className="bg-white/70"
                     required
                     aria-label={`Título del hallazgo ${index + 1}`}
                   />
@@ -167,7 +167,7 @@ export function DiagnosticForm({
                     }
                   >
                     <SelectTrigger
-                      className="h-9 bg-card text-xs"
+                      className="h-9 bg-white/70 text-xs"
                       aria-label={`Severidad ${index + 1}`}
                     >
                       <SelectValue />
@@ -189,7 +189,7 @@ export function DiagnosticForm({
                     })
                   }
                   placeholder="Detalle (opcional)"
-                  className="bg-card"
+                  className="bg-white/70"
                   aria-label={`Detalle del hallazgo ${index + 1}`}
                 />
                 {findings.length > 1 && (
@@ -217,7 +217,7 @@ export function DiagnosticForm({
             id="diagnostic-recommendation"
             value={recommendation}
             onChange={(event) => setRecommendation(event.target.value)}
-            className="bg-background"
+            className="bg-white/70"
             placeholder="Trabajo sugerido…"
           />
         </div>

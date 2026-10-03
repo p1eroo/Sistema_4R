@@ -171,7 +171,7 @@ export function VehicleHistory({ vehicleId }: { vehicleId: string }) {
         />
       )}
       {!loading && !failed && events.length > 0 && (
-        <div className="divide-y divide-border">
+        <div className="divide-y divide-border/60">
           {events.map((event) => (
             <div
               key={`${event.kind}-${event.id}`}
@@ -223,7 +223,7 @@ export function VehicleHistorySearch() {
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
             placeholder="ABC-123"
-            className="bg-background sm:max-w-xs"
+            className="bg-white/70 sm:max-w-xs"
             aria-label="Placa"
           />
           <Button type="submit" size="sm">

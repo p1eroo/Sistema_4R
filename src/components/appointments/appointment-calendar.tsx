@@ -429,7 +429,7 @@ function AppointmentCard({
         type="button"
         onClick={onSelect}
         className={cn(
-          "w-full rounded-lg border border-border bg-background p-3 text-left",
+          "w-full rounded-lg border border-border/60 bg-white/50 p-3 text-left",
           selected && "border-primary bg-primary/5",
         )}
       >

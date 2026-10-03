@@ -311,7 +311,7 @@ export function ReceptionReviewStep({
         <p className="text-[11px] text-muted-foreground">
           Marcado = OK · Sin marcar = falla.
         </p>
-        <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+        <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
           {reception.checklist.map((item) => (
             <li
               key={item.id}
@@ -336,7 +336,7 @@ export function ReceptionReviewStep({
             Sin revisión de inspección.
           </p>
         ) : (
-          <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+          <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
             {inspection?.checklist.map((item) => (
               <li
                 key={item.id}
@@ -365,7 +365,7 @@ export function ReceptionReviewStep({
               return (
                 <li
                   key={point.id}
-                  className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-3 py-2"
+                  className="flex items-center justify-between gap-2 rounded-lg border border-border/60 bg-white/50 px-3 py-2"
                 >
                   <span className="text-xs">
                     {zone?.label ?? point.zoneId}

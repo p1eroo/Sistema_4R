@@ -53,7 +53,7 @@ export function DamageMap({
               "min-h-9 rounded-md border px-3 py-1.5 text-xs font-semibold",
               view === item
                 ? "border-primary bg-primary/10"
-                : "border-border bg-card",
+                : "border-border bg-white/70",
             )}
           >
             {DAMAGE_VIEW_LABELS[item]}

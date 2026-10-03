@@ -436,7 +436,7 @@ export function WorkOrderDetail({ workOrderId }: { workOrderId: string }) {
                   }
                 >
                   <SelectTrigger
-                    className="bg-background sm:w-64"
+                    className="bg-white/70 sm:w-64"
                     aria-label="Nuevo estado"
                   >
                     <SelectValue placeholder="Selecciona un estado" />

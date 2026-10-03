@@ -126,7 +126,7 @@ export function WorkOrderList() {
               value={filters.search}
               onChange={(event) => updateFilter("search", event.target.value)}
               placeholder="Buscar por código o placa"
-              className="border-input bg-card shadow-none pl-9"
+              className="border-input bg-white/70 shadow-none pl-9"
               aria-label="Buscar órdenes"
             />
           </div>
@@ -134,7 +134,7 @@ export function WorkOrderList() {
             value={filters.branchId}
             onValueChange={(value) => updateFilter("branchId", value)}
           >
-            <SelectTrigger className="w-full border-input bg-card shadow-none sm:w-48">
+            <SelectTrigger className="w-full border-input bg-white/70 shadow-none sm:w-48">
               <SelectValue placeholder="Sede" />
             </SelectTrigger>
             <SelectContent>
@@ -162,7 +162,7 @@ export function WorkOrderList() {
                   "rounded-md border px-2.5 py-1 text-[11px] font-semibold",
                   active
                     ? "border-primary bg-primary/10 text-primary"
-                    : "border-border bg-background text-muted-foreground",
+                    : "border-border bg-white/70 text-muted-foreground",
                 )}
               >
                 {chip.label}

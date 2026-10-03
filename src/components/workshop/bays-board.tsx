@@ -189,7 +189,7 @@ export function BaysBoard() {
         />
         <Select value={branchId} onValueChange={setBranchId}>
           <SelectTrigger
-            className="w-full border-input bg-card shadow-none sm:w-44"
+            className="w-full border-input bg-white/70 shadow-none sm:w-44"
             aria-label="Filtrar por sede"
           >
             <SelectValue placeholder="Sede" />
@@ -205,7 +205,7 @@ export function BaysBoard() {
         </Select>
         <Select value={status} onValueChange={setStatus}>
           <SelectTrigger
-            className="w-full border-input bg-card shadow-none sm:w-44"
+            className="w-full border-input bg-white/70 shadow-none sm:w-44"
             aria-label="Filtrar por estado"
           >
             <SelectValue placeholder="Estado" />
@@ -262,10 +262,7 @@ export function BaysBoard() {
               : undefined;
             const vehicle = order ? vehicles.get(order.vehicleId) : undefined;
             return (
-              <article
-                key={bay.id}
-                className="min-w-0 rounded-xl border border-border bg-card p-3 shadow-xs"
-              >
+              <article key={bay.id} className="min-w-0 glass p-3">
                 <div className="mb-3 flex items-start justify-between gap-2">
                   <div className="min-w-0">
                     <p className="text-xs font-bold tabular-nums">{bay.code}</p>
@@ -331,7 +328,7 @@ export function BaysBoard() {
                         }
                       >
                         <SelectTrigger
-                          className="h-8 bg-background text-[11px]"
+                          className="h-8 bg-white/70 text-[11px]"
                           aria-label={`Asignar OT a ${bay.code}`}
                         >
                           <SelectValue placeholder="Asignar OT" />

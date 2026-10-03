@@ -279,7 +279,7 @@ export function ReceptionPartyStep({
             <p className="text-[11px] font-semibold text-muted-foreground">
               Clientes encontrados
             </p>
-            <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+            <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
               {customerHits.map((hit) => (
                 <li key={hit.id}>
                   <button
@@ -308,14 +308,14 @@ export function ReceptionPartyStep({
 
       {customer && (
         <div className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-lg border border-border bg-card p-3">
+          <div className="rounded-lg border border-border/60 bg-white/50 p-3">
             <p className="text-[11px] text-muted-foreground">Cliente</p>
             <p className="text-xs font-semibold">{customer.displayName}</p>
             <p className="text-[11px] text-muted-foreground">
               {customer.documentType} {customer.documentNumber}
             </p>
           </div>
-          <div className="rounded-lg border border-border bg-card p-3">
+          <div className="rounded-lg border border-border/60 bg-white/50 p-3">
             <p className="text-[11px] text-muted-foreground">Vehículo</p>
             {vehicle ? (
               <>
@@ -371,7 +371,7 @@ export function ReceptionPartyStep({
             />
           )}
           {vehiclesQuery.isSuccess && vehicles.length > 0 && (
-            <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+            <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
               {vehicles.map((item) => (
                 <li key={item.id}>
                   <button
@@ -410,13 +410,13 @@ export function ReceptionPartyStep({
             value={reason}
             onChange={(event) => setReason(event.target.value)}
             rows={3}
-            className="bg-background text-xs font-normal"
+            className="bg-white/70 text-xs font-normal"
           />
         </label>
         <label className="space-y-1.5 text-xs font-medium">
           Sede
           <Select value={branchId} onValueChange={setBranchId}>
-            <SelectTrigger className="bg-background">
+            <SelectTrigger className="bg-white/70">
               <SelectValue placeholder="Sede" />
             </SelectTrigger>
             <SelectContent>

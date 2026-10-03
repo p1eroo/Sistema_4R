@@ -112,7 +112,7 @@ export function QualityCheckForm({
           {items.map((item, index) => (
             <li
               key={item.id}
-              className="rounded-lg border border-border bg-background p-3"
+              className="rounded-lg border border-border/60 bg-white/50 p-3"
             >
               <div className="flex items-start gap-3">
                 <Checkbox
@@ -146,7 +146,7 @@ export function QualityCheckForm({
                           ),
                         );
                       }}
-                      className="bg-background"
+                      className="bg-white/70"
                       placeholder="Motivo del fallo"
                     />
                   )}
@@ -165,7 +165,7 @@ export function QualityCheckForm({
             id={`qc-notas-${workOrderId}`}
             value={notes}
             onChange={(event) => setNotes(event.target.value)}
-            className="bg-background"
+            className="bg-white/70"
             placeholder="Observaciones del inspector"
           />
         </div>
