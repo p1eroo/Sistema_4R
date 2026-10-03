@@ -73,7 +73,7 @@ function RailButton({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "group relative flex w-[5.5rem] shrink-0 flex-col items-center gap-1.5 rounded-xl border bg-card px-2 py-3 text-center shadow-xs transition-all",
+        "group relative flex w-[5.5rem] shrink-0 flex-col items-center gap-1.5 rounded-xl border bg-card px-2 py-3 text-center transition-all",
         "hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-sm",
         active
           ? "border-primary bg-primary/5 text-primary ring-1 ring-primary/30"

@@ -11,7 +11,6 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 ## Claude
 
 ### TODO
-- [ ] CL-007 POS en glass (4 pantallas)
 - [ ] CL-008 Taller A en glass
 - [ ] CL-009 Taller B en glass
 - [ ] CL-010 QA final del rediseño Glass
@@ -25,6 +24,7 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 - [x] CL-004 Shell glass: sidebar, header y page header
 - [x] CL-005 Primitivos de referencia en glass
 - [x] CL-006 Dashboard en glass
+- [x] CL-007 POS en glass (4 pantallas)
 - [x] CL-011 Capas flotantes en vidrio medio y menús con tipografía de ERP
 
 ## Cursor
@@ -83,14 +83,13 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 ## OpenCode
 
 ### TODO
-- [ ] O-058 Compras en glass
 - [ ] O-059 Inventario en glass
 - [ ] O-060 Usuarios, sedes y configuración en glass
 - [ ] O-061 Reportes en glass
 - [ ] O-062 Tests de primitivos y guardia de superficies ad-hoc
 
 ### DOING
-- [ ] O-057 Productos, servicios, catálogo y precios en glass
+- [ ] O-058 Compras en glass
 
 ### DONE
 - [x] O-001 Toolchain de typecheck y tests
@@ -149,6 +148,7 @@ En curso: **PHASE 11 — Rediseño Glass** (solo CSS, tema claro), a cargo de Cl
 - [x] O-054 Tests unitarios de helpers y mocks críticos
 - [x] O-055 Resto de primitivos shadcn en glass (sin capas flotantes: hechas en CL-011)
 - [x] O-056 Clientes y Proveedores en glass
+- [x] O-057 Productos, servicios, catálogo y precios en glass
 
 ## Blocked
 

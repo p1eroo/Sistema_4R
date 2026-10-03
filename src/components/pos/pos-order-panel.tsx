@@ -117,7 +117,7 @@ export function PosOrderPanel({
 
   return (
     <aside className="flex min-w-0 flex-col gap-4">
-      <section className="rounded-xl border border-border bg-card shadow-xs">
+      <section className="glass-strong">
         <header className="flex items-center justify-between gap-2 border-b border-border px-4 py-3.5">
           <div className="flex min-w-0 items-center gap-2">
             <span className="grid size-8 place-items-center rounded-lg bg-primary/10 text-primary">
@@ -144,7 +144,7 @@ export function PosOrderPanel({
               disabled={!editable}
             >
               <SelectTrigger
-                className="min-w-0 flex-1 bg-background"
+                className="min-w-0 flex-1 bg-white/70"
                 aria-label="Cliente"
               >
                 <SelectValue placeholder="Selecciona cliente" />
@@ -252,7 +252,7 @@ export function PosOrderPanel({
               </p>
             </div>
           ) : (
-            <ul className="divide-y divide-border rounded-lg border border-border">
+            <ul className="divide-y divide-border/60 rounded-lg border border-border">
               {lines.map((line) => {
                 const lineTotal = money(
                   line.quantity * line.unitPrice.amount,
@@ -362,7 +362,7 @@ export function PosOrderPanel({
         </div>
       </section>
 
-      <section className="rounded-xl border border-border bg-card px-4 py-3.5 shadow-xs">
+      <section className="glass-strong px-4 py-3.5">
         <h2 className="mb-2.5 text-xs font-bold">Resumen de pago</h2>
         <dl className="space-y-2 text-xs">
           <SummaryRow
@@ -414,7 +414,7 @@ export function PosOrderPanel({
         </div>
       </section>
 
-      <section className="rounded-xl border border-border bg-card px-4 py-3.5 shadow-xs">
+      <section className="glass-strong px-4 py-3.5">
         <h2 className="mb-2.5 text-xs font-bold">Método de pago</h2>
         <div className="grid grid-cols-3 gap-2">
           {PAYMENT_TILES.map(({ method, icon: Icon, tone }) => {
@@ -432,7 +432,7 @@ export function PosOrderPanel({
                   unavailable ? "El cliente no tiene anticipos" : undefined
                 }
                 className={cn(
-                  "flex flex-col items-center gap-1 rounded-lg border bg-background px-1.5 py-2.5 text-[11px] font-semibold transition-all",
+                  "flex flex-col items-center gap-1 rounded-lg border bg-white/70 px-1.5 py-2.5 text-[11px] font-semibold transition-all",
                   "hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-xs disabled:pointer-events-none disabled:opacity-40",
                   active
                     ? "border-primary bg-primary/5 text-primary ring-1 ring-primary/30"
@@ -455,7 +455,7 @@ export function PosOrderPanel({
       <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-2">
         <Button
           variant="outline"
-          className="h-11 bg-card"
+          className="h-11"
           disabled={!ticket || lines.length === 0}
           onClick={onProforma}
         >

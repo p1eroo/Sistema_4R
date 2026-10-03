@@ -179,7 +179,7 @@ export function PosShell() {
         </div>
 
         <section className="min-w-0 space-y-4">
-          <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4 shadow-xs lg:flex-row lg:items-center lg:justify-between">
+          <div className="glass flex flex-col gap-3 p-4 2xl:flex-row 2xl:items-center 2xl:justify-between">
             <div className="min-w-0">
               <h2 className="text-base font-extrabold tracking-tight">
                 Punto de venta · Sede La Molina
@@ -198,7 +198,7 @@ export function PosShell() {
                 ) : null}
               </p>
             </div>
-            <div className="flex min-w-0 flex-col gap-2 sm:flex-row lg:w-[30rem]">
+            <div className="flex min-w-0 flex-col gap-2 sm:flex-row 2xl:w-[30rem]">
               <form
                 className="relative min-w-0 flex-1"
                 onSubmit={(event) => {
@@ -219,8 +219,8 @@ export function PosShell() {
                       setSearch("");
                     }
                   }}
-                  placeholder="Buscar producto o escanear SKU (F2)"
-                  className="h-9 bg-background pl-9 pr-9"
+                  placeholder="Buscar o escanear SKU (F2)"
+                  className="h-9 bg-white/70 pl-9 pr-9"
                   aria-label="Buscar producto o SKU"
                   disabled={!cashIsOpen}
                 />
@@ -228,7 +228,7 @@ export function PosShell() {
               </form>
               <Select value={brand} onValueChange={setBrand}>
                 <SelectTrigger
-                  className="h-9 bg-background sm:w-40"
+                  className="h-9 bg-white/70 sm:w-40"
                   aria-label="Marca"
                 >
                   <SelectValue />
@@ -259,12 +259,12 @@ export function PosShell() {
               {Array.from({ length: 8 }, (_, index) => (
                 <div
                   key={index}
-                  className="h-72 animate-pulse rounded-xl border border-border bg-card"
+                  className="h-72 animate-pulse rounded-xl bg-white/50"
                 />
               ))}
             </div>
           ) : visible.length === 0 ? (
-            <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-border bg-card px-6 py-16 text-center">
+            <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-border bg-white/30 px-6 py-16 text-center">
               <PackageSearch
                 className="size-10 text-muted-foreground/60"
                 aria-hidden

@@ -269,10 +269,10 @@ export function CashRegisterList() {
           description="No hay sesiones de caja que coincidan con los filtros."
         />
       ) : (
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
+        <div className="glass-strong overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[56rem] text-xs">
-              <thead className="bg-muted/40 text-[11px] text-muted-foreground">
+              <thead className="bg-white/40 text-[11px] text-muted-foreground">
                 <tr>
                   <th className="px-4 py-2.5 text-left font-semibold">Caja</th>
                   <th className="px-3 py-2.5 text-left font-semibold">
@@ -302,7 +302,7 @@ export function CashRegisterList() {
                   <th className="px-4 py-2.5" />
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border">
+              <tbody className="divide-y divide-border/60">
                 {rows.map((session) => {
                   const summary = summarizeCashSession(session);
                   const difference = summary.difference?.amount ?? 0;
@@ -509,10 +509,7 @@ function CashSessionSheet({
                       value={type}
                       onValueChange={(value) => setType(value as typeof type)}
                     >
-                      <SelectTrigger
-                        className="bg-background"
-                        aria-label="Tipo"
-                      >
+                      <SelectTrigger className="bg-white/70" aria-label="Tipo">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -529,7 +526,7 @@ function CashSessionSheet({
                       onChange={(event) => setAmount(event.target.value)}
                       placeholder="Monto S/"
                       aria-label="Monto del movimiento"
-                      className="bg-background tabular-nums"
+                      className="bg-white/70 tabular-nums"
                     />
                   </div>
                   <Input
@@ -537,7 +534,7 @@ function CashSessionSheet({
                     onChange={(event) => setNotes(event.target.value)}
                     placeholder="Detalle (ej. pago de movilidad)"
                     aria-label="Detalle del movimiento"
-                    className="bg-background"
+                    className="bg-white/70"
                   />
                   <Button
                     size="sm"
@@ -577,7 +574,7 @@ function CashSessionSheet({
                     placeholder={(summary.expectedAmount.amount / 100).toFixed(
                       2,
                     )}
-                    className="bg-background tabular-nums"
+                    className="bg-white/70 tabular-nums"
                   />
                   {preview !== null ? (
                     <p
@@ -694,7 +691,7 @@ function OpenCashDialog({
           <div className="space-y-1.5">
             <Label>Sede</Label>
             <Select value={branchId} onValueChange={setBranchId}>
-              <SelectTrigger className="bg-background" aria-label="Sede">
+              <SelectTrigger className="bg-white/70" aria-label="Sede">
                 <SelectValue placeholder="Selecciona la sede" />
               </SelectTrigger>
               <SelectContent>
@@ -712,7 +709,7 @@ function OpenCashDialog({
               inputMode="decimal"
               value={opening}
               onChange={(event) => setOpening(event.target.value)}
-              className="bg-background tabular-nums"
+              className="bg-white/70 tabular-nums"
             />
           </div>
           {error ? (

@@ -132,7 +132,7 @@ export function CashSessionPanel({
                 value={closingSoles}
                 onChange={(event) => setClosingSoles(event.target.value)}
                 placeholder={(session.expectedAmount.amount / 100).toFixed(2)}
-                className="bg-background tabular-nums"
+                className="bg-white/70 tabular-nums"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ export function CashSessionPanel({
                 inputMode="decimal"
                 value={openingSoles}
                 onChange={(event) => setOpeningSoles(event.target.value)}
-                className="bg-background tabular-nums"
+                className="bg-white/70 tabular-nums"
               />
             </div>
           </div>

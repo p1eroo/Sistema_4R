@@ -66,7 +66,7 @@ export function PosReceipt({
 
         <div
           id="pos-print-area"
-          className="rounded-lg border border-dashed border-border bg-background p-4 font-mono text-[11px] leading-relaxed"
+          className="rounded-lg border border-dashed border-border bg-white/70 p-4 font-mono text-[11px] leading-relaxed"
         >
           <div className="text-center">
             <img

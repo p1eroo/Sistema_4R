@@ -177,7 +177,7 @@ export function PosQuickSale() {
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem] 2xl:grid-cols-[minmax(0,1fr)_26rem]">
         <section className="min-w-0 space-y-4">
-          <div className="rounded-xl border border-border bg-card p-4 shadow-xs">
+          <div className="glass p-4">
             <div className="flex items-center gap-2">
               <span className="grid size-9 place-items-center rounded-lg bg-critical/10 text-critical">
                 <Zap className="size-4" aria-hidden />
@@ -218,13 +218,13 @@ export function PosQuickSale() {
                 }}
                 placeholder="SKU, código de barras o nombre…"
                 aria-label="Buscar o escanear producto"
-                className="h-12 bg-background pl-11 text-base font-medium"
+                className="h-12 bg-white/70 pl-11 text-base font-medium"
                 autoComplete="off"
               />
               {results.length > 0 ? (
                 <ul
                   role="listbox"
-                  className="absolute inset-x-0 top-full z-30 mt-1 overflow-hidden rounded-xl border border-border bg-popover shadow-lg"
+                  className="absolute inset-x-0 top-full z-30 mt-1 glass-float overflow-hidden"
                 >
                   {results.map((item, index) => (
                     <li
@@ -273,7 +273,7 @@ export function PosQuickSale() {
             ) : null}
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
+          <div className="glass-strong overflow-hidden">
             <div className="flex items-center justify-between border-b border-border px-4 py-3">
               <p className="text-sm font-bold">Ticket {ticket?.code ?? ""}</p>
               <Button
@@ -288,7 +288,7 @@ export function PosQuickSale() {
             </div>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[34rem] text-xs">
-                <thead className="bg-muted/40 text-[11px] text-muted-foreground">
+                <thead className="bg-white/40 text-[11px] text-muted-foreground">
                   <tr>
                     <th className="w-10 px-4 py-2 text-left font-semibold">
                       #
@@ -308,7 +308,7 @@ export function PosQuickSale() {
                     <th className="w-10 px-4 py-2" />
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border">
+                <tbody className="divide-y divide-border/60">
                   {lines.length === 0 ? (
                     <tr>
                       <td
@@ -404,7 +404,7 @@ export function PosQuickSale() {
             <Keyboard className="size-4" aria-hidden />
             {SHORTCUTS.map(([key, label]) => (
               <span key={key} className="inline-flex items-center gap-1">
-                <kbd className="rounded border border-border bg-card px-1.5 py-0.5 font-mono text-[10px] font-bold text-foreground shadow-xs">
+                <kbd className="rounded border border-border bg-white/70 px-1.5 py-0.5 font-mono text-[10px] font-bold text-foreground shadow-xs">
                   {key}
                 </kbd>
                 {label}
@@ -437,7 +437,7 @@ export function PosQuickSale() {
             </dl>
           </div>
 
-          <div className="space-y-4 rounded-xl border border-border bg-card p-4 shadow-xs">
+          <div className="glass-strong space-y-4 p-4">
             <div className="space-y-1.5">
               <p className="text-xs font-bold">Cliente</p>
               <Select
@@ -445,7 +445,7 @@ export function PosQuickSale() {
                 onValueChange={controller.setCustomerId}
                 disabled={!cashIsOpen}
               >
-                <SelectTrigger className="bg-background" aria-label="Cliente">
+                <SelectTrigger className="bg-white/70" aria-label="Cliente">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -479,7 +479,7 @@ export function PosQuickSale() {
                     )}
                   >
                     <Icon className="size-4" aria-hidden />
-                    <span className="truncate">
+                    <span className="w-full truncate text-center">
                       {PAYMENT_METHOD_LABELS[value]}
                     </span>
                   </button>
@@ -503,7 +503,7 @@ export function PosQuickSale() {
                   }}
                   placeholder="0.00"
                   aria-label="Monto recibido"
-                  className="h-11 bg-background text-lg font-bold tabular-nums"
+                  className="h-11 bg-white/70 text-lg font-bold tabular-nums"
                 />
                 <div className="grid grid-cols-4 gap-1.5">
                   {cashTenderSuggestions(total).map((value, index) => (
@@ -545,7 +545,7 @@ export function PosQuickSale() {
                   onChange={(event) => setReference(event.target.value)}
                   placeholder="N.° de operación o voucher (opcional)"
                   aria-label="Referencia del pago"
-                  className="bg-background"
+                  className="bg-white/70"
                 />
               </div>
             )}

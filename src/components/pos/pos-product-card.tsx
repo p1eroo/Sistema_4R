@@ -42,7 +42,7 @@ export function PosProductCard({
   return (
     <article
       className={cn(
-        "group relative flex min-w-0 flex-col rounded-xl border bg-card p-3 shadow-xs transition-all duration-200",
+        "group relative flex min-w-0 flex-col rounded-xl border bg-card p-3 shadow-[var(--glass-shadow)] transition-all duration-200",
         "hover:-translate-y-0.5 hover:shadow-md",
         selected
           ? "border-success ring-1 ring-success/30"
@@ -118,7 +118,7 @@ export function PosProductCard({
             onClick={onDecrement}
             disabled={disabled || quantity === 0}
             aria-label={`Quitar una unidad de ${item.name}`}
-            className="grid size-6 place-items-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:border-destructive/50 hover:text-destructive disabled:opacity-40"
+            className="grid size-6 place-items-center rounded-full border border-border bg-white/70 text-muted-foreground transition-colors hover:border-destructive/50 hover:text-destructive disabled:opacity-40"
           >
             <Minus className="size-3" />
           </button>

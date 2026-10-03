@@ -31,7 +31,7 @@ export function CashMovementsList({
   }
 
   return (
-    <ul className="divide-y divide-border rounded-lg border border-border bg-card">
+    <ul className="divide-y divide-border/60 rounded-lg border border-border/60 bg-white/50">
       {[...movements]
         .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
         .map((movement) => {

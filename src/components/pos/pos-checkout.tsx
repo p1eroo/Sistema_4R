@@ -136,7 +136,7 @@ export function PosCheckout({
                     })
                   }
                 >
-                  <SelectTrigger className="bg-background">
+                  <SelectTrigger className="bg-white/70">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -157,7 +157,7 @@ export function PosCheckout({
                     updateRow(row.id, { amountSoles: event.target.value })
                   }
                   onFocus={(event) => event.target.select()}
-                  className="bg-background tabular-nums"
+                  className="bg-white/70 tabular-nums"
                   aria-label={`Monto pago ${index + 1}`}
                 />
               </div>
@@ -204,7 +204,7 @@ export function PosCheckout({
                     onChange={(event) =>
                       updateRow(row.id, { reference: event.target.value })
                     }
-                    className="bg-background"
+                    className="bg-white/70"
                     placeholder="N.° de operación o voucher"
                   />
                 </div>

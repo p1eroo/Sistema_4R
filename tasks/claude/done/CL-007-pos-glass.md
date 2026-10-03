@@ -4,7 +4,7 @@
 Claude
 
 ## Status
-TODO
+DONE
 
 ## Priority
 High
@@ -38,8 +38,8 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - Solo clases y composición visual.
 
 ## Acceptance Criteria
-- [ ] Todas las pantallas del alcance usan el estilo glass sin superficies ad-hoc.
-- [ ] Sin regresiones funcionales; tests del módulo pasan.
+- [x] Todas las pantallas del alcance usan el estilo glass sin superficies ad-hoc.
+- [x] Sin regresiones funcionales; tests del módulo pasan.
 
 ## Verification
 - npm run typecheck
@@ -47,7 +47,7 @@ Rediseño visual completo con estética de vidrio hecha solo con CSS (`backdrop-
 - npm run test
 
 ## Completion Report
-- Files changed:
-- Features completed:
-- Tests:
-- Remaining issues:
+- Files changed: `src/components/pos/*.tsx` (11 archivos). Las rutas de `routes/_erp/pos` no necesitaron cambios.
+- Features completed: paneles, tablas y toolbars pasan a `glass` / `glass-strong`; tarjetas de producto y riel de categorías quedan translúcidos sin blur (elementos repetidos); el autocompletado de Venta rápida usa `glass-float`; separadores y cabeceras de tabla suavizados. El buscador del Punto de venta ya no queda angosto: la cabecera apila buscador y marca hasta `2xl`. Etiqueta "Transferencia" ya no desborda en Venta rápida.
+- Tests: `npm run typecheck` OK; lint de `components/pos` sin problemas; `npm run test` 353 OK. Capturas de las 4 pantallas; en Punto de venta se agregó un producto al ticket con clic real.
+- Remaining issues: no se capturaron los diálogos de cobro/recibo ni los paneles laterales de cajas y anticipos con el estilo nuevo.

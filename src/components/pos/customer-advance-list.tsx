@@ -244,10 +244,10 @@ export function CustomerAdvanceList() {
           description="No hay anticipos que coincidan con los filtros."
         />
       ) : (
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
+        <div className="glass-strong overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[52rem] text-xs">
-              <thead className="bg-muted/40 text-[11px] text-muted-foreground">
+              <thead className="bg-white/40 text-[11px] text-muted-foreground">
                 <tr>
                   <th className="px-4 py-2.5 text-left font-semibold">
                     Anticipo
@@ -274,7 +274,7 @@ export function CustomerAdvanceList() {
                   <th className="px-4 py-2.5" />
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border">
+              <tbody className="divide-y divide-border/60">
                 {rows.map((advance) => {
                   const balance = advanceBalance(advance);
                   const applied = advanceAppliedAmount(advance);
@@ -446,7 +446,7 @@ function AdvanceSheet({
                     venta eligiendo el método “Anticipo”.
                   </p>
                 ) : (
-                  <ul className="divide-y divide-border rounded-lg border border-border">
+                  <ul className="divide-y divide-border/60 rounded-lg border border-border">
                     {advance.applications.map((application) => (
                       <li
                         key={application.id}
@@ -486,7 +486,7 @@ function AdvanceSheet({
                     onChange={(event) => setReason(event.target.value)}
                     placeholder="Motivo (ej. devolución al cliente)"
                     aria-label="Motivo de anulación"
-                    className="min-h-16 bg-background text-xs"
+                    className="min-h-16 bg-white/70 text-xs"
                   />
                   <Button
                     size="sm"
@@ -592,7 +592,7 @@ function CreateAdvanceDialog({
           <div className="space-y-1.5">
             <Label>Cliente</Label>
             <Select value={customerId} onValueChange={setCustomerId}>
-              <SelectTrigger className="bg-background" aria-label="Cliente">
+              <SelectTrigger className="bg-white/70" aria-label="Cliente">
                 <SelectValue placeholder="Selecciona el cliente" />
               </SelectTrigger>
               <SelectContent>
@@ -613,7 +613,7 @@ function CreateAdvanceDialog({
                   setMethod(value as AdvancePaymentMethod)
                 }
               >
-                <SelectTrigger className="bg-background" aria-label="Método">
+                <SelectTrigger className="bg-white/70" aria-label="Método">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -632,7 +632,7 @@ function CreateAdvanceDialog({
                 value={amount}
                 onChange={(event) => setAmount(event.target.value)}
                 placeholder="0.00"
-                className="bg-background tabular-nums"
+                className="bg-white/70 tabular-nums"
               />
             </div>
           </div>
@@ -643,7 +643,7 @@ function CreateAdvanceDialog({
                 value={reference}
                 onChange={(event) => setReference(event.target.value)}
                 placeholder="N.° de operación o voucher"
-                className="bg-background"
+                className="bg-white/70"
               />
             </div>
           ) : (
@@ -659,7 +659,7 @@ function CreateAdvanceDialog({
               value={concept}
               onChange={(event) => setConcept(event.target.value)}
               placeholder="Ej. Separación de repuestos para mantenimiento"
-              className="min-h-16 bg-background"
+              className="min-h-16 bg-white/70"
             />
           </div>
           {error ? (
