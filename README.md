@@ -19,3 +19,15 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Despliegue (Cloudflare Pages)
+
+`npm run build` compila para Cloudflare Pages y deja el resultado en `dist/`.
+
+En el proyecto de Cloudflare Pages:
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Settings → Functions → Compatibility flags: `nodejs_compat`
+
+Para compilar para otro destino: `NITRO_PRESET=node-server npm run build` (salida en `.output/`).

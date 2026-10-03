@@ -30,7 +30,11 @@ export default defineConfig(({ command }) => ({
       },
     }),
     // Nitro solo empaqueta el servidor en build; en dev sirve Vite.
-    ...(command === "build" ? [nitro()] : []),
+    // Destino: Cloudflare Pages (salida en dist/). Se puede cambiar con la
+    // variable NITRO_PRESET, por ejemplo NITRO_PRESET=node-server.
+    ...(command === "build"
+      ? [nitro({ preset: process.env["NITRO_PRESET"] ?? "cloudflare_pages" })]
+      : []),
     viteReact(),
   ],
 }));
