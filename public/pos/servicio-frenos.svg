@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <defs>
+    <radialGradient id="disc" cx=".45" cy=".4" r=".6"><stop offset="0" stop-color="#f3f4f6"/><stop offset=".7" stop-color="#9ca3af"/><stop offset="1" stop-color="#4b5563"/></radialGradient>
+    <linearGradient id="cal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef4444"/><stop offset="1" stop-color="#991b1b"/></linearGradient>
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0f172a" stop-opacity=".25"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="96" cy="146" rx="60" ry="7" fill="url(#shadow)"/>
+  <circle cx="92" cy="80" r="60" fill="url(#disc)"/>
+  <circle cx="92" cy="80" r="52" fill="none" stroke="#6b7280" stroke-width="1" stroke-dasharray="2 5"/>
+  <g fill="#4b5563">
+    <circle cx="92" cy="40" r="3"/><circle cx="120" cy="52" r="3"/><circle cx="132" cy="80" r="3"/><circle cx="120" cy="108" r="3"/><circle cx="92" cy="120" r="3"/><circle cx="64" cy="108" r="3"/><circle cx="52" cy="80" r="3"/><circle cx="64" cy="52" r="3"/>
+  </g>
+  <circle cx="92" cy="80" r="26" fill="#d1d5db" stroke="#6b7280" stroke-width="2"/>
+  <circle cx="92" cy="80" r="9" fill="#4b5563"/>
+  <g fill="#6b7280"><circle cx="92" cy="64" r="3.5"/><circle cx="107" cy="75" r="3.5"/><circle cx="101" cy="93" r="3.5"/><circle cx="83" cy="93" r="3.5"/><circle cx="77" cy="75" r="3.5"/></g>
+  <path d="M132 34 Q162 50 164 80 Q162 110 132 126 L124 112 Q146 100 146 80 Q146 60 124 48 Z" fill="url(#cal)"/>
+  <text x="150" y="84" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="8" fill="#fff" transform="rotate(90 150 80)">BREMBO</text>
+</svg>

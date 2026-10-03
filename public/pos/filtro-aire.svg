@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fb923c"/><stop offset="1" stop-color="#c2410c"/></linearGradient>
+    <linearGradient id="pleat" x1="0" x2="1"><stop offset="0" stop-color="#fef3c7"/><stop offset=".5" stop-color="#fffbeb"/><stop offset="1" stop-color="#fde68a"/></linearGradient>
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0f172a" stop-opacity=".25"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="100" cy="138" rx="78" ry="8" fill="url(#shadow)"/>
+  <path d="M30 62 L120 36 L172 74 L82 104 Z" fill="url(#frame)"/>
+  <path d="M30 62 L82 104 L82 118 L30 76 Z" fill="#9a3412"/>
+  <path d="M82 104 L172 74 L172 88 L82 118 Z" fill="#c2410c"/>
+  <g transform="translate(0 0)">
+    <path d="M40 63 L118 41 L160 73 L83 98 Z" fill="url(#pleat)"/>
+    <g stroke="#d6a84a" stroke-width="1.4">
+      <line x1="48" y1="61" x2="91" y2="96"/><line x1="56" y1="59" x2="99" y2="93"/><line x1="64" y1="56" x2="107" y2="91"/><line x1="72" y1="54" x2="115" y2="88"/><line x1="80" y1="52" x2="123" y2="85"/><line x1="88" y1="50" x2="131" y2="83"/><line x1="96" y1="48" x2="139" y2="80"/><line x1="104" y1="45" x2="147" y2="78"/><line x1="112" y1="43" x2="154" y2="75"/>
+    </g>
+  </g>
+  <text x="128" y="106" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="8" fill="#fff" transform="rotate(-18 128 106)">WEGA</text>
+</svg>

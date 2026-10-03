@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <defs>
+    <linearGradient id="jug" x1="0" x2="1"><stop offset="0" stop-color="#111827"/><stop offset=".4" stop-color="#374151"/><stop offset="1" stop-color="#0b0f19"/></linearGradient>
+    <linearGradient id="label" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef4444"/><stop offset="1" stop-color="#b91c1c"/></linearGradient>
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0f172a" stop-opacity=".28"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="100" cy="144" rx="52" ry="7" fill="url(#shadow)"/>
+  <path d="M66 46 Q66 36 76 34 L104 30 L106 20 h16 l2 12 Q134 36 134 50 L136 132 Q136 140 128 140 H72 Q64 140 64 132 Z" fill="url(#jug)"/>
+  <rect x="104" y="12" width="20" height="10" rx="3" fill="#dc2626"/>
+  <path d="M74 44 Q70 46 72 60 L80 60 Q82 48 92 44 Z" fill="#000" opacity=".35"/>
+  <rect x="70" y="66" width="60" height="58" rx="5" fill="url(#label)"/>
+  <rect x="70" y="66" width="60" height="14" rx="5" fill="#fff" opacity=".95"/>
+  <text x="100" y="77" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="9" fill="#b91c1c">MOBIL</text>
+  <text x="100" y="101" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="17" fill="#fff">5W-30</text>
+  <text x="100" y="116" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="7" fill="#fee2e2">SINTÉTICO · 1 GAL</text>
+  <rect x="122" y="50" width="5" height="76" rx="2.5" fill="#fff" opacity=".12"/>
+</svg>

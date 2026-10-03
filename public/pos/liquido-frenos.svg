@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <defs>
+    <linearGradient id="btl" x1="0" x2="1"><stop offset="0" stop-color="#e2e8f0"/><stop offset=".45" stop-color="#ffffff"/><stop offset="1" stop-color="#cbd5e1"/></linearGradient>
+    <linearGradient id="capg" x1="0" x2="1"><stop offset="0" stop-color="#ca8a04"/><stop offset=".5" stop-color="#fde047"/><stop offset="1" stop-color="#a16207"/></linearGradient>
+    <linearGradient id="fluid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity=".55"/><stop offset="1" stop-color="#d97706" stop-opacity=".75"/></linearGradient>
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0f172a" stop-opacity=".25"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="100" cy="144" rx="44" ry="7" fill="url(#shadow)"/>
+  <rect x="86" y="14" width="28" height="18" rx="4" fill="url(#capg)"/>
+  <g stroke="#a16207" stroke-width="1" opacity=".6"><line x1="92" y1="15" x2="92" y2="31"/><line x1="100" y1="15" x2="100" y2="31"/><line x1="108" y1="15" x2="108" y2="31"/></g>
+  <path d="M90 32 h20 v6 Q130 44 130 60 V132 Q130 140 122 140 H78 Q70 140 70 132 V60 Q70 44 90 38 Z" fill="url(#btl)"/>
+  <path d="M72 96 H128 V132 Q128 138 122 138 H78 Q72 138 72 132 Z" fill="url(#fluid)"/>
+  <rect x="74" y="62" width="52" height="50" rx="4" fill="#1e3a8a"/>
+  <text x="100" y="80" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="7" fill="#bfdbfe">BRAKE FLUID</text>
+  <text x="100" y="99" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="16" fill="#facc15">DOT 4</text>
+  <rect x="80" y="104" width="40" height="3" rx="1.5" fill="#facc15"/>
+  <rect x="116" y="50" width="5" height="80" rx="2.5" fill="#fff" opacity=".6"/>
+</svg>

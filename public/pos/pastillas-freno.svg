@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d1d5db"/><stop offset="1" stop-color="#6b7280"/></linearGradient>
+    <linearGradient id="pad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4b5563"/><stop offset="1" stop-color="#1f2937"/></linearGradient>
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0f172a" stop-opacity=".28"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="100" cy="140" rx="70" ry="8" fill="url(#shadow)"/>
+  <g transform="translate(18 26) rotate(-8 60 50)">
+    <path d="M8 34 Q60 0 112 34 L112 78 Q60 58 8 78 Z" fill="url(#plate)"/>
+    <path d="M18 40 Q60 14 102 40 L102 70 Q60 54 18 70 Z" fill="url(#pad)"/>
+    <line x1="60" y1="26" x2="60" y2="62" stroke="#111827" stroke-width="2.5"/>
+    <circle cx="14" cy="56" r="4" fill="#9ca3af"/><circle cx="106" cy="56" r="4" fill="#9ca3af"/>
+  </g>
+  <g transform="translate(64 48) rotate(6 60 50)">
+    <path d="M8 34 Q60 0 112 34 L112 78 Q60 58 8 78 Z" fill="url(#plate)"/>
+    <path d="M18 40 Q60 14 102 40 L102 70 Q60 54 18 70 Z" fill="url(#pad)"/>
+    <line x1="60" y1="26" x2="60" y2="62" stroke="#111827" stroke-width="2.5"/>
+    <circle cx="14" cy="56" r="4" fill="#9ca3af"/><circle cx="106" cy="56" r="4" fill="#9ca3af"/>
+    <rect x="44" y="64" width="34" height="9" rx="2" fill="#dc2626"/>
+    <text x="61" y="71" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="7" fill="#fff">BOSCH</text>
+  </g>
+</svg>
